@@ -222,7 +222,7 @@ ul.nav.navbar-nav li{
 	top:37px;
 }
 .banner-grids{
-	    position: absolute;
+	position: absolute;
     bottom: -35px;
     left: 17%;
     width: 65%;
@@ -1127,6 +1127,7 @@ ul.nav.navbar-nav li a {
     margin-left: 9.8em;
 }
 .banner-grid {
+    margin-top: 2%;
     float: left;
     width: 50%;
 }
