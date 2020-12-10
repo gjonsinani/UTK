@@ -221,6 +221,13 @@ ul.nav.navbar-nav li{
 	font-size:30px;
 	top:37px;
 }
+.glyphicon1:before {
+	color:#fff;
+	position:absolute;
+	left:20px;
+	font-size:30px;
+	top:37px;
+}
 .banner-grids{
 	position: absolute;
     bottom: -35px;
@@ -266,6 +273,10 @@ ul.nav.navbar-nav li{
 	padding:5em 0 4em;
 }
 .glyphicon-user:before,.glyphicon-heart:before ,.glyphicon-bullhorn:before{
+	color:#fff;
+	font-size:70px;
+}
+.glyphicon:before{
 	color:#fff;
 	font-size:70px;
 }
