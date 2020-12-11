@@ -257,7 +257,7 @@ ul.nav.navbar-nav li{
 }
 /*--choose--*/
 .choose{
-	background:url(../images/why.jpg) no-repeat 0px 0px;
+	background-color: #e4eaec;
 	background-size:cover;
 	min-height:400px;
 }
@@ -272,10 +272,7 @@ ul.nav.navbar-nav li{
 .choos-girds{
 	padding:5em 0 4em;
 }
-.glyphicon-user:before,.glyphicon-heart:before ,.glyphicon-bullhorn:before,.glyphicon-text-background{
-	color:#fff;
-	font-size:70px;
-}
+
 .glyphicon5{
     position: relative;
   top: 1px;
@@ -284,7 +281,7 @@ ul.nav.navbar-nav li{
   font-style: normal;
   font-weight: normal;
   line-height: 1;
-  color:#fff;
+  color:#526069;
 	font-size:70px;
 
   -webkit-font-smoothing: antialiased;
@@ -295,14 +292,14 @@ ul.nav.navbar-nav li{
 	text-align:center;
 }
 .choos-grid h4{
-	color:#fff;
+	color:#526069;
 	font-family: 'TitilliumWeb-Bold';
 	font-size:1.6em;
 	margin-top:0.7em;
 }
 .choos-grid p{
 	font-size:0.9em;
-	color:#fff;
+	color:#526069;
 	margin-top:1em;
 	line-height:1.7em;
 }
