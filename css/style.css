@@ -81,7 +81,7 @@ ul.nav.navbar-nav li a{
 	color:#333;	
 }
 ul.nav.navbar-nav li a:hover{
-	color: #fd7364;
+	color: #73eac4;
 }
 ul.dropdown-menu li a{
 	padding:0.6em!important
@@ -97,7 +97,7 @@ ul.nav.navbar-nav li{
     border-color: #FFFFFF;	
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color:#fd7364;
+    color:#73eac4;
     background-color: #fff;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
@@ -964,10 +964,10 @@ h2.typoh2{
 	-o-border-radius: 0.3em;
 	-ms-border-radius: 0.3em;
 }
-.contact-but form input[type="submit"] {
-	border: solid 1px #fd7364;
+.contact-but-red {
+	border: solid 1px #d9534f;
 	outline: none;
-	color: #fd7364;	
+	color: #d9534f;	
 	padding: 10px 36px;
 	font-size: 1em;
 	font-weight: 600;
@@ -976,9 +976,53 @@ h2.typoh2{
 	-webkit-appearance: none;
 	background:transparent;
 }
-.contact-but form input[type="submit"]:hover {
-	background: #fd7364;
-	border: solid 1px #fd7364;
+.contact-but-red:hover {
+	background: #d9534f;
+	border: solid 1px#d9534f;
+	transition: 0.5s all;
+	color:#fff;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}
+.contact-but-green {
+	border: solid 1px #5cb85c;
+	outline: none;
+	color: #5cb85c;	
+	padding: 10px 36px;
+	font-size: 1em;
+	font-weight: 600;
+	margin-top: 1.5em;
+	letter-spacing: 1px;
+	-webkit-appearance: none;
+	background:transparent;
+}
+.contact-but-green:hover {
+	background: #5cb85c;
+	border: solid 1px #5cb85c;
+	transition: 0.5s all;
+	color:#fff;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}
+.contact-but-blue {
+	border: solid 1px #337ab7;
+	outline: none;
+	color: #337ab7;	
+	padding: 10px 36px;
+	font-size: 1em;
+	font-weight: 600;
+	margin-top: 1.5em;
+	letter-spacing: 1px;
+	-webkit-appearance: none;
+	background:transparent;
+}
+.contact-but-blue:hover {
+	background: #337ab7;
+	border: solid 1px #337ab7;
 	transition: 0.5s all;
 	color:#fff;
 	-webkit-transition: 0.5s all;
