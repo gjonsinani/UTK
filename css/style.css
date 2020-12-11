@@ -272,14 +272,25 @@ ul.nav.navbar-nav li{
 .choos-girds{
 	padding:5em 0 4em;
 }
-.glyphicon-user:before,.glyphicon-heart:before ,.glyphicon-bullhorn:before{
+.glyphicon-user:before,.glyphicon-heart:before ,.glyphicon-bullhorn:before,.glyphicon-text-background{
 	color:#fff;
 	font-size:70px;
 }
-.glyphicon:before{
-	color:#fff;
+.glyphicon5{
+    position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  color:#fff;
 	font-size:70px;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 .choos-grid{
 	text-align:center;
 }
