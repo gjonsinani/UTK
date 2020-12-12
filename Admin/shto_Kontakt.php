@@ -10,7 +10,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title>UTK</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="css/lightbox.css">
-<link rel="stylesheet" href="/css/fontawesome.min.css">
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
@@ -72,44 +71,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <br>
 <br>
 <!---->
-
 	<div class="container" >		 
-	<div class="choose" style="border:solid #333 1px;">
-		 <h3 style="background-color:#333;">Forma për Menaxhimin e Kontakteve</h3>
+	<div class="choose" style="border:solid #526069 1px;">
+		 <h3 style="background-color:#526069;">Forma për Menaxhimin e Kontakteve</h3>
 		 <div class="container">		 
-			 <div class="choos-girds">
-				 <div class="col-md-4 choos-grid">
-					 <span class="glyphicon5 glyphicon-plus" style="color:#337ab7 ;" aria-hidden="true"></span>
-					<p>Forma për shtimin e kontaktit.</p>
-					 <br>
-					 <button onclick="location.href='shto_Kontakt.php'" type="button" class="contact-but-blue">
-         Shto</button>
-				 </div>
-
-				 <div class="col-md-4 choos-grid">
-					<span class="glyphicon5 glyphicon-pencil" style="color:#5cb85c ;" aria-hidden="true"></span>
-					<p>Forma për modifikimin e kontakteve.</p>
-					<br>
-					<button onclick="location.href='modifiko_Kontakt.php'" type="button" class="contact-but-green">
-         Modifiko</button>
-				</div>
-
-				<div class="col-md-4 choos-grid">
-					<span class="glyphicon5 glyphicon-remove" style="color:#d9534f ;" aria-hidden="true"></span>
-					<p>Forma për fshirjen e kontakteve.</p>
-					<br>
-					<button onclick="location.href='fshij_Kontakt.php'" type="button" class="contact-but-red">
-         Fshi</button>
-				</div>
-				 <div class="clearfix"></div>
-			 </div>
-		 </div>
-	</div>
-
+            <div style="width:80%; text-align:center; margin:5% auto 2% auto;">
+                <form class=" footer-bottom ">
+                    <table class="table table-responsive">
+                            <tbody>
+                            <tr>
+                                <td style="font-weight:bold; color:black;text-align: right;">Emri dhe Mbiemri: </td>
+                                <td><input class="form-control" type="text" name="Emri" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Emri dhe Mbiemri';}"/></td>
+                                
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold; color:black;text-align: right;">Email-i:</td>
+                                <td><input class="form-control" type="text" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email-i';}"/></td>
+                                
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold; color:black; text-align: right;">Nr. i Telefonit:</td>
+                                <td><input class="form-control" type="tel" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'xxx/xxx-xxx';}"/></td>
+                                
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold; color:black;text-align: right;">Mesazhi:</td>
+                                <td><textarea class="form-control" name="Mesazhi" rows="5" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mesazhi juaj';}"></textarea></td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>                   
+                    <div >
+                        <form>
+                            <input class="contact-but-blue" type="submit" value="Shto" />
+                        </form>
+                    </div>
+                
+                </form>
+                <div class="clearfix"></div>
+			</div>
+			
+		 
+	 </div>
+</div>
 
 <!-- footer -->
 
-<footer>
+<footer style="margin-top: 5%">
 	<div class="copywrite">
 		 <div class="container">
 				 <p> © 2015 Goaway. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
