@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="top-header">
         <div class="container">
             <div class="logo">
-                <h1><a href="index.html"><span class="glyphicon glyphicon-road" aria-hidden="true"></span>Goaway</a></h1>
+                <h1><a href="index.html"><span class="glyphicon glyphicon-road" aria-hidden="true"></span>UTK</a></h1>
             </div>
         </div>
     </div>
@@ -60,14 +60,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li><a href="home.php">Ballina</a></li>
-                            <li><a href="users.php">Perdoruesit</a></li>
-                            <li class="active dropdown">
+                            <li><a href="rreth_kosoves.php">Rreth Kosoves</a></li>
+
+                            <li class="dropdown">
                                 <a href="#" class="scroll dropdown-toggle" data-toggle="dropdown">Kontakt<b class="caret"></b></a>
                                 <ul class=" dropdown-menu">
                                     <li><a href="kontakt.php">Kontakti</a></li>
                                     <li><a href="sygjerim.php">Sygjerimet</a></li>
                                 </ul>
                             </li>
+                            <li><a href="users.php">Perdoruesit</a></li>
+
                             <li> <a href="logout.php">Logout</a> </li>
                             <li>
                                 Pershendetje, <?php echo $login_user; ?>!

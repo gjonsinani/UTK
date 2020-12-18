@@ -28,6 +28,7 @@ $result = mysqli_query(
             <table width='100%' border=0>
                 <tr bgcolor='#CCCCCC'>
                     <td>Perdouesi</td>
+                    <td>Email</td>
                     <td>Fjalekalimi</td>
                     <td></td>
 
@@ -35,7 +36,7 @@ $result = mysqli_query(
                 <?php
                 if (!empty($_REQUEST['term'])) {
                     $term = mysqli_real_escape_string($conn, $_REQUEST['term']);
-                    $sql = mysqli_query($conn, "SELECT * FROM users WHERE username LIKE '%" . $term . "%' ");
+                    $sql = mysqli_query($conn, "SELECT * FROM users WHERE username LIKE '%" . $term . "%' OR email LIKE '%" . $term . "%' ");
                     if (!$sql) {
                         printf("Error: %s\n", mysqli_error($conn));
                         exit();
@@ -44,6 +45,7 @@ $result = mysqli_query(
                     while ($row = mysqli_fetch_array($sql)) {
                         echo '<tr style="padding:1%; widht:100%">';
                         echo '<td style="padding:1%;">' . $row['username'] . "</td>";
+                        echo '<td style="padding:1%;">' . $row['email'] . "</td>";
                         echo '<td style="padding:1%;">' . $row['password'] . "</td>";
                         echo "<td><a href=\"update_user.php?uid=$row[uid]\"  class='btn btn-primary text-uppercase'>Modifiko</a> </td>";
                         echo "</tr>";

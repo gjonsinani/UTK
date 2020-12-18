@@ -12,12 +12,18 @@ include("header.php");
 							<tbody>
 								<tr>
 									<td style="font-weight:bold; color:black;text-align: right;">Perdoruesi: </td>
-									<td><input class="form-control" type="text" name="username" /></td>
+									<td><input class="form-control" type="text" name="username" required /></td>
+
+								</tr>
+								<tr>
+									<td style="font-weight:bold; color:black;text-align: right;">Email: </td>
+									<td><input class="form-control" type="email" name="email" required /></td>
 
                                 </tr>
+
                                 <tr>
 									<td style="font-weight:bold; color:black;text-align: right;">Fjalekalimi: </td>
-									<td><input class="form-control" type="text" name="password"/></td>
+									<td><input class="form-control" type="text" name="password" required/></td>
 
 								</tr>
 
