@@ -10,9 +10,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title>UTK</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="css/lightbox.css">
+<link rel="stylesheet" type="text/css" href="css/style2.css">
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-<link rel="stylesheet" type="text/css" href="css/style2.css">
 <!-- Custom Theme files -->
 <!--//theme style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,9 +50,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <li><a href="#">Home</a></li>
 					 <li><a href="#">About</a></li>
 					 <li class="active dropdown">
-						<a href="#" class="scroll dropdown-toggle" data-toggle="dropdown">Kontakt<b class="caret"></b></a>
+						<a href="#" class="scroll dropdown-toggle" data-toggle="dropdown">Kontakti<b class="caret"></b></a>
 						<ul class=" dropdown-menu">
-							<li><a  href="kontakt.php">Kontakti</a></li>
+							<li><a class="active"  href="kontakt.php">Kontaktet</a></li>
 							<li><a  href="suggest.php">Sygjerimet</a></li>
 						</ul>
 					 </li>					
@@ -72,49 +72,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <br>
 <br>
 <!---->
-	<div class="container">	
-	<div class="choose d-choose">
-		 <h3 class="t-h3">Forma për Shtimin e Kontakteve</h3>
-		 <div class="container">		 
-            <div class="div-form">
+<div class="contact">
+	 <div class="container">
+	 	<div class="choose d-choose">
+			
+				<h3 class="t-h3">Forma për modifikimin e të dhënave të kontaktit</h3>
+           
+            <div class="d-form">
                 <form class=" footer-bottom ">
-                	<div class="table-responsive">
-                    <table class="table">
-                            <tbody>
-                            <tr>
-                                <td class="t-td">Emri dhe Mbiemri: </td>
-                                <td><input class="form-control" type="text" name="Emri" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Emri dhe Mbiemri';}"/></td>
-                                
+                	<div class="input-group table-responsive" style="margin:5%;">
+						<span class="input-group-addon " id="basic-addon1">Kërko kontaktin: </span>
+						<input type="text" class="form-control" placeholder=" Emri ose Email-i" aria-describedby="basic-addon1">
+					</div>
+					<div class="table-responsive">
+                    <table class="table" >
+                        <thead>
+                        	<tr>
+	                            <th class="t-th">Emri dhe Mbiemri</th>
+	                            <th class="t-th">Nr. i Telefonit</th>
+	                            <th class="t-th">Mesazhi</th>
+	                            <th class="t-th">Ndrysho</th>
                             </tr>
-                            <tr>
-                                <td class="t-td">Email-i:</td>
-                                <td><input class="form-control" type="text" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email-i';}"/></td>
-                                
+                        </thead>
+                        <tbody style="line-height: 0;">
+                        	<tr>
+                        		<td class="tdtable">Uranik Sejdiu</td>
+                        		<td class="tdtable">12346789</td> 
+                        		<td class="tdtable">test@htomail.com</td>  
+                        		<td><input style="text-align: center;" class="contact-but-green" type="submit" value="Ndrysho" /></td>                          	
                             </tr>
-                            <tr>
-                                <td class="t-td" >Nr. i Telefonit:</td>
-                                <td><input class="form-control" type="tel" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'XXX/xxx-xxx';}"/></td>
-                                
+                            <tr>  
+	                            <td>Uranik Sejdiu</td>
+	                            <td>12346789</td> 
+	                            <td>test@htomail.com</td>
+	                            <td><input class="contact-but-green" type="submit" value="Ndrysho" />
+                				</td>                           	
                             </tr>
-                            <tr>
-                                <td class="t-td">Mesazhi:</td>
-                                <td><textarea class="form-control txt-area" name="Mesazhi" rows="5" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mesazhi juaj';}"></textarea></td>
-                                
-                            </tr>
-                        </tbody>
-                    </table>
-                    </div>                   
-                    <div >
-                        <form>
-                            <input class="contact-but-blue" type="submit" value="Shto" />
-                        </form>
-                    </div>
+                            <tr >  
+		                            <td>Uranik Sejdiu</td>
+		                            <td>12346789</td> 
+		                            <td>test@htomail.com</td> 
+		                            <td><input class="contact-but-green" type="submit" value="Ndrysho" /></td>                          	
+	                        </tr>
+	                    </tbody>
+	                </table>
+	                </div>                   
+                    
                 
                 </form>
                 <div class="clearfix"></div>
 			</div>
 			
-		 
+		 </div>
 	 </div>
 </div>
 

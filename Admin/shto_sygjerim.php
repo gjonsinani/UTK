@@ -27,7 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="top-header">
 	 <div class="container">
 		 <div class="logo">
-			 <h1><a href="index.html"><span class="glyphicon glyphicon-road" aria-hidden="true"></span> UTK</a></h1>
+			 <h1><a href="index.html"><span class="glyphicon glyphicon-road" aria-hidden="true"></span>Goaway</a></h1>
 		 </div>		 
 	 </div>
 </div>
@@ -74,7 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---->
 	<div class="container">	
 	<div class="choose d-choose">
-		 <h3 class="t-h3">Forma për Shtimin e Kontakteve</h3>
+		 <h3 class="t-h3">Forma për Shtimin e Sygjerimeve Të Përdoruesit</h3>
 		 <div class="container">		 
             <div class="div-form">
                 <form class=" footer-bottom ">
@@ -82,31 +82,55 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <table class="table">
                             <tbody>
                             <tr>
-                                <td class="t-td">Emri dhe Mbiemri: </td>
-                                <td><input class="form-control" type="text" name="Emri" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Emri dhe Mbiemri';}"/></td>
-                                
+                                <td class="t-td">Emri i Pikës Turistike: </td>
+                                <td><input class="form-control" type="text" name="emri-pika" /></td>
                             </tr>
                             <tr>
-                                <td class="t-td">Email-i:</td>
-                                <td><input class="form-control" type="text" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email-i';}"/></td>
-                                
+                                <td class="t-td">Foto:</td>
+                                <td><input class=""  type="file" accept="image/*" name="foto"/></td>
                             </tr>
                             <tr>
-                                <td class="t-td" >Nr. i Telefonit:</td>
-                                <td><input class="form-control" type="tel" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'XXX/xxx-xxx';}"/></td>
-                                
+                                <td class="t-td">Video:</td>
+                                <td><input class=""  type="file" accept="video/*" name="video"/></td>
                             </tr>
                             <tr>
-                                <td class="t-td">Mesazhi:</td>
-                                <td><textarea class="form-control txt-area" name="Mesazhi" rows="5" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mesazhi juaj';}"></textarea></td>
-                                
+                                <td class="t-td">Linku: </td>
+                                <td><input class="form-control" type="text" name="linku" /></td>
+                            </tr>
+                            <tr>
+                                <td class="t-td">Lokacioni: </td>
+                                <td><input class="form-control" type="text" name="lokacioni" /></td>
+                            </tr>
+                            <tr>
+                                <td class="t-td" >Komuna:</td>
+                                <td><select class="form-control" name="komuna">
+							  <option>Prishtinë</option>
+							  <option>Ferizaj</option>
+							  <option>Prizren</option>
+							</select></td>                                
+                            </tr>
+                            <tr>
+                                <td class="t-td" >Linqe të shpejta:</td>
+                                <td><input class="form-control" type="text" name="linkishpejt"/></td>
+                            </tr>
+                            <tr>
+                                <td class="t-td" >Atraksioni:</td>
+                                <td><select class="form-control" name="atraksioni">
+							  <option>Kulturor</option>
+							  <option>Natyror</option>
+							  <option>Artificial</option>
+							</select></td>                                
+                            </tr>
+                            <tr>
+                                <td class="t-td">Pershkrimi:</td>
+                                <td><textarea class="form-control txt-area" name="pershkrimi" rows="7" ></textarea></td>
                             </tr>
                         </tbody>
                     </table>
-                    </div>                   
+                    </div>                  
                     <div >
                         <form>
-                            <input class="contact-but-blue" type="submit" value="Shto" />
+                            <input class="contact-but-blue" type="Submit" name="Shto" value="Shto" />
                         </form>
                     </div>
                 
