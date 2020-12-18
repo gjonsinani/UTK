@@ -262,7 +262,7 @@ ul.nav.navbar-nav li{
 	min-height:400px;
 }
 .choose h3{
-	background:#fd7364;
+	background: #333;
 	padding:0.5em 0;
 	color:#fff;
 	font-size:1.5em;
@@ -865,7 +865,7 @@ section#tables  p {
 }
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
   font-size: 0.9em;
-  color: #999;
+  color: black;
   border-top: none !important;
 }
 .tab-content > .active {

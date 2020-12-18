@@ -1,0 +1,19 @@
+.t-td{
+	font-weight:bold !important; 
+	color:black !important;
+	text-align: right !important;
+}
+
+
+.d-form{
+	width:80%; text-align:center; 
+	margin:5% auto 2% auto;
+}
+
+.d-choose{
+	border:solid #526069 1px;
+}
+
+.t-h3{
+	background: #333 !important;
+}
