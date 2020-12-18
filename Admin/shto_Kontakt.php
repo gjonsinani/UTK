@@ -97,7 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </tr>
                             <tr>
                                 <td class="t-td">Mesazhi:</td>
-                                <td><textarea class="form-control" name="Mesazhi" rows="5" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mesazhi juaj';}"></textarea></td>
+                                <td><textarea class="form-control txt-area" name="Mesazhi" rows="5" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mesazhi juaj';}"></textarea></td>
                                 
                             </tr>
                         </tbody>
