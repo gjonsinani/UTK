@@ -1,21 +1,7 @@
-/* <<<<<<< HEAD
-.border-dark-1px{
-border:solid #333 1px;
-};
-
-.bg-color-dark{
-    background-color:#333;
-}; */
-=======
 .t-td{
 	font-weight:bold !important; 
 	color:black !important;
 	text-align: right !important;
-}
-
-.txt-area{
-	resize: none;
-	overflow-y: scroll;
 }
 
 
@@ -31,4 +17,3 @@ border:solid #333 1px;
 .t-h3{
 	background: #333 !important;
 }
->>>>>>> 76684473e4a72a76ef404d46d6b6a69f697ed8bd
