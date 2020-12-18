@@ -28,6 +28,7 @@ $result = mysqli_query(
             <table width='100%' border=0>
                 <tr bgcolor='#CCCCCC'>
                     <td>Perdoruesi</td>
+                    <td>Email</td>
                     <td>Fjalekalimi</td>
                     <td></td>
 
@@ -44,6 +45,7 @@ $result = mysqli_query(
                     while ($row = mysqli_fetch_array($sql)) {
                         echo '<tr style="padding:1%; widht:100%">';
                         echo '<td style="padding:1%;">' . $row['username'] . "</td>";
+                        echo '<td style="padding:1%;">' . $row['email'] . "</td>";
                         echo '<td style="padding:1%;">' . $row['password'] . "</td>";
                         echo "<td><a href=\"delete_user.php?uid=$row[uid]\" onClick=\"return confirm('A jeni te sigurt se deshironi te fshini perdoruesin?')\" class='btn btn-danger'>Fshijë</a> </td>";			
                         echo "</tr>";

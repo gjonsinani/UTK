@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="top-header">
         <div class="container">
             <div class="logo">
-                <h1><a href="index.html"><span class="glyphicon glyphicon-road" aria-hidden="true"></span>UTK</a></h1>
+                <h1><a href="home.php"><span class="glyphicon glyphicon-road" aria-hidden="true"></span>UTK</a></h1>
             </div>
         </div>
     </div>
@@ -71,11 +71,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </li>
                             <li><a href="users.php">Perdoruesit</a></li>
 
-                            <li> <a href="logout.php">Logout</a> </li>
-                            <li>
-                                Pershendetje, <?php echo $login_user; ?>!
-                            </li>
+                            <li> <a href="logout.php">Ckycy</a> </li>
+
                         </ul>
+                        <h3 class="text-right"> Pershendetje, <?php echo $login_user; ?>!</h3>
 
                     </div>
 

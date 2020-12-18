@@ -59,12 +59,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<table class="table table-responsive">
 							<tbody>
 								<tr>
-									<td style="font-weight:bold; color:black;text-align: right;">Username:</td>
-									<td><input class="form-control" type="text" name="username" required onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" /></td>
+									<td style="font-weight:bold; color:black;text-align: right;">Perdoruesi:</td>
+									<td><input class="form-control" type="text" name="username" required /></td>
 								</tr>
 								<tr>
-									<td style="font-weight:bold; color:black;text-align: right;">Password:</td>
-									<td><input class="form-control" type="password" name="password" required onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" /></td>
+									<td style="font-weight:bold; color:black;text-align: right;">Fjalekalimi:</td>
+									<td><input class="form-control" type="password" name="password" required/></td>
 								</tr>
 							</tbody>
 						</table>
