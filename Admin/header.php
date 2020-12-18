@@ -60,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li><a href="home.php">Ballina</a></li>
-                            <li><a href="#">About</a></li>
+                            <li><a href="users.php">Perdoruesit</a></li>
                             <li class="active dropdown">
                                 <a href="#" class="scroll dropdown-toggle" data-toggle="dropdown">Kontakt<b class="caret"></b></a>
                                 <ul class=" dropdown-menu">
