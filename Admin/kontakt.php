@@ -33,7 +33,7 @@ include("header.php");
 						<p>Forma për fshirjen e kontakteve.</p>
 						<br>
 						<button onclick="location.href='fshij_Kontakt.php'" type="button" class="contact-but-red">
-							Fshi</button>
+							Fsh</button>
 					</div>
 					<div class="clearfix"></div>
 				</div>
