@@ -98,3 +98,65 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `selectKontakt`(IN `p_ID` INT(11), OUT `Emri` VARCHAR(50), OUT `Email` VARCHAR(50), OUT `Tel` VARCHAR(25), OUT `Mesazhi` VARCHAR(500))
+SELECT *
+FROM kontaktet
+WHERE ID_Kontakti=p_ID$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `shtoKontakt`(IN `p_emri` VARCHAR(50), IN `p_email` VARCHAR(50), IN `p_tel` VARCHAR(25), IN `p_mesazhi` VARCHAR(500))
+    MODIFIES SQL DATA
+INSERT INTO kontaktet(
+  Emri,
+    Email,
+    Tel,
+    Mesazhi
+)
+VALUES(
+  p_emri,
+    p_email,
+    p_tel,
+    p_mesazhi
+)$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sterm`(IN p_term VARCHAR(200))
+SELECT *
+FROM
+    kontaktet
+WHERE
+    Emri LIKE CONCAT('%', p_term , '%') OR Email LIKE CONCAT('%', p_term , '%')$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `uKontakt`(p_ID int(11), p_emri varchar(50), p_email varchar(50), p_tel varchar(25), p_mesazhi varchar(500))
+UPDATE kontaktet
+SET 
+  Emri=p_emri,
+    Email=p_email,
+    Tel=p_tel,
+    Mesazhi=p_mesazhi
+WHERE
+  p_ID=ID_Kontakti$$
+DELIMITER ;
+
+
+CREATE TABLE kontaktet(
+  ID_Kontakti int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  Emri VARCHAR(50) NOT NULL,
+  Email VARCHAR(50) NOT NULL,
+  Tel VARCHAR(25) NOT NULL,
+  Mesazhi VARCHAR(500) NOT NULL
+
+);
+
+INSERT INTO kontaktet(Emri, Email, Tel, Mesazhi)
+VALUES('Uraniki Sejdiu','uranik4@gmail.com','044-333-555','dasdad'),
+    ('t','t@t.com','125-369-963','t');
