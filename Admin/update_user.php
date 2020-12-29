@@ -50,13 +50,13 @@ while ($res = mysqli_fetch_array($result)) {
 								<td><input type="email" name="email" class="form-control" value="<?php echo $email; ?>" /></td>
 							</tr>
 
-								<td style="font-weight:bold; color:black;text-align: right;">Fjalekalimi: </td>
-								<td><input type="text" name="password" class="form-control" value="<?php echo $password; ?>"/></td>
+							<td style="font-weight:bold; color:black;text-align: right;">Fjalekalimi: </td>
+							<td><input type="text" name="password" class="form-control" value="<?php echo $password; ?>" /></td>
 							</tr>
 						</tbody>
 					</table>
-					<input type="hidden" name="uid" value='<?php echo $_GET['uid'];?>' />
-					<input class="contact-but-blue" type="submit" name="update_user"  value="Modifiko"/>
+					<input type="hidden" name="uid" value='<?php echo $_GET['uid']; ?>' />
+					<input class="contact-but-blue" type="submit" name="update_user" value="Modifiko" />
 					<div>
 
 	</form>

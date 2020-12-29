@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</tr>
 								<tr>
 									<td style="font-weight:bold; color:black;text-align: right;">Fjalekalimi:</td>
-									<td><input class="form-control" type="password" name="password" required/></td>
+									<td><input class="form-control" type="password" name="password" required /></td>
 								</tr>
 							</tbody>
 						</table>
