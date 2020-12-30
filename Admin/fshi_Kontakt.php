@@ -4,6 +4,9 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php include('check.php') ?>
+<?php include_once('config.php'); ?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -47,18 +50,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <!--/navbar header-->		
 			 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				 <ul class="nav navbar-nav">
-					 <li><a href="#">Home</a></li>
-					 <li><a href="#">About</a></li>
-					 <li class="active dropdown">
-						<a href="#" class="scroll dropdown-toggle" data-toggle="dropdown">Kontakt<b class="caret"></b></a>
-						<ul class=" dropdown-menu">
-							<li><a class="active"  href="kontakt.php">Kontakti</a></li>
-							<li><a  href="suggest.php">Sygjerimet</a></li>
-						</ul>
-					 </li>					
-					 <li><a href="#">Gallery</a></li>
-					 <li><a href="#">Typography</a></li>
-					 <li><a href="#">Contact</a></li>
+					 <li><a href="home.php">Ballina</a></li>
+					 <li><a href="rreth_kosoves.php">Rreth Kosoves</a></li>
+					 <li class="active"><a  href="kontakt.php">Kontakti</b></a> </li>
+					 <li><a href="pikat_turistike.php">Pikat Turistike</b></a> </li>
+					 <li><a href="users.php">Perdoruesit</a></li>
+					 <li> <a href="logout.php">Ckycy</a> </li>
 				 </ul>
 				</div>
 			  <!--/navbar collapse-->
@@ -69,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 		</div>
 </div>
-<br>
+<br><h4 class="text-right" style="margin-right: 5%;"> Pershendetje, <?php echo $login_user; ?>!</h4>
 <br>
 <!---->
 <div class="contact">
@@ -80,47 +77,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h3 class="t-h3">Forma për fshirjen e të dhënave të kontaktit</h3>
             
             <div class="d-form">
-                <form class=" footer-bottom ">
-                	<div class="input-group table-responsive" style="margin:5%;">
-						<span class="input-group-addon" id="basic-addon1">Kerkoni kontaktin : </span>
-						<input type="text" class="form-control" placeholder="Emri ose Email-i" aria-describedby="basic-addon1">
-					</div>
-					<div class="table-responsive">
-                    <table class="table table-responsive">
+                <form class=" footer-bottom " action="" method="post">
+                	<div style="width: 70%; text-align: center; margin:0 15% 2% 15%;">
+					    <div class="input-group">
+					      <input type="text" name="term" class="form-control" placeholder="Emri ose Email-i">
+					      <span class="input-group-btn">
+					        <button class="btn btn-default" type="submit">Kërko</button>
+					      </span>
+					    </div>
+  					</div>
+  					</form>
+					<div class="table-responsive" style="width: 100%;">
+                    <table class="table" style="width: 100%;">
                         <thead>
                         	<tr>
 	                            <th class="t-th">Emri dhe Mbiemri</th>
+	                            <th class="t-th">Email</th>
 	                            <th class="t-th">Nr. i Telefonit</th>
 	                            <th class="t-th">Mesazhi</th>
 	                            <th class="t-th">Fshi</th>
                             </tr>
                         </thead>
-                        <tbody style="line-height: 0;">
-                        	<tr>
-                        		<td>Uranik Sejdiu</td>
-                        		<td>12346789</td> 
-                        		<td>test@htomail.com</td>  
-                        		<td><input style="text-align: center;" class="contact-but-red" type="submit" value="Fshi" /></td>                          	
-                            </tr>
-                            <tr>  
-	                            <td>Uranik Sejdiu</td>
-	                            <td>12346789</td> 
-	                            <td>test@htomail.com</td>
-	                            <td><input class="contact-but-red" type="submit" value="Fshi" />
-                				</td>                           	
-                            </tr>
-                            <tr >  
-		                            <td>Uranik Sejdiu</td>
-		                            <td>12346789</td> 
-		                            <td>test@htomail.com</td> 
-		                            <td><input class="contact-but-red" type="submit" value="Fshi" /></td>                          	
-	                        </tr>
+                        <tbody style="line-height: 0;text-align: center;">
+                        	<?php
+								if (!empty($_REQUEST['term'])) {
+								$term =mysqli_real_escape_string ($conn,$_REQUEST['term']);     
+								$sql = mysqli_query($conn,"CALL sterm('$term');");
+								while($row = mysqli_fetch_array($sql)) { 		
+										echo "<tr>";
+										echo "<td>".$row['Emri']."</td>";
+										echo "<td>".$row['Email']."</td>";
+										echo "<td>".$row['Tel']."</td>";
+										echo "<td>".$row['Mesazhi']."</td>";	
+										echo "<td><a href=\"delete_Kontakt.php?ID_Kontakti=$row[ID_Kontakti]\" onClick=\"return confirm('A jeni te sigurt se deshironi te fshini kontaktin?')\" class='contact-but-red' style='text-decoration:none;'>
+										Fshi</a></td></tr>";		
+						}
+
+					}
+
+					?>
 	                    </tbody>
 	                </table>
 	                </div>                   
                     
                 
-                </form>
+                
                 </div>
                 <div class="clearfix"></div>
 			</div>

@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php include("check.php"); ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -47,18 +48,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <!--/navbar header-->		
 			 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				 <ul class="nav navbar-nav">
-					 <li><a href="#">Home</a></li>
-					 <li><a href="#">About</a></li>
-					 <li class="active dropdown">
-						<a href="#" class="scroll dropdown-toggle" data-toggle="dropdown">Kontakt<b class="caret"></b></a>
-						<ul class=" dropdown-menu">
-							<li><a  href="kontakt.php">Kontakti</a></li>
-							<li><a  href="suggest.php">Sygjerimet</a></li>
-						</ul>
-					 </li>					
-					 <li><a href="#">Gallery</a></li>
-					 <li><a href="#">Typography</a></li>
-					 <li><a href="#">Contact</a></li>
+					 <li><a href="home.php">Ballina</a></li>
+					 <li><a href="rreth_kosoves.php">Rreth Kosoves</a></li>
+					 <li class="active"><a href="kontakt.php">Kontakti</b></a> </li>
+					 <li><a href="pikat_turistike.php">Pikat Turistike</b></a> </li>
+					 <li><a href="users.php">Perdoruesit</a></li>
+					 <li> <a href="logout.php">Ckycy</a> </li>
 				 </ul>
 				</div>
 			  <!--/navbar collapse-->
@@ -69,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 		</div>
 </div>
-<br>
+<br><h4 class="text-right" style="margin-right: 5%;"> Pershendetje, <?php echo $login_user; ?>!</h4>
 <br>
 <!---->
 	<div class="container">	
@@ -77,28 +72,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 <h3 class="t-h3">Forma për Shtimin e Kontakteve</h3>
 		 <div class="container">		 
             <div class="div-form">
-                <form class=" footer-bottom ">
+                <form class=" footer-bottom " method="post" action="shtoKontakt.php">
                 	<div class="table-responsive">
                     <table class="table">
                             <tbody>
                             <tr>
                                 <td class="t-td">Emri dhe Mbiemri: </td>
-                                <td><input class="form-control" type="text" name="Emri" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Emri dhe Mbiemri';}"/></td>
+                                <td><input class="form-control" type="text" name="Emri" onfocus="this.value = '';"/></td>
                                 
                             </tr>
                             <tr>
                                 <td class="t-td">Email-i:</td>
-                                <td><input class="form-control" type="text" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email-i';}"/></td>
+                                <td><input class="form-control" type="text" name="Email" onfocus="this.value = '';"/></td>
                                 
                             </tr>
                             <tr>
-                                <td class="t-td" >Nr. i Telefonit:</td>
-                                <td><input class="form-control" type="tel" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'XXX/xxx-xxx';}"/></td>
+                                <td class="t-td" >Nr. i Telefonit:
+                                <br><small>Shembull: 123-45-678</small></td>
+                                <td><input class="form-control" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" name="Tel" onfocus="this.value = '';"/></td>
                                 
                             </tr>
                             <tr>
                                 <td class="t-td">Mesazhi:</td>
-                                <td><textarea class="form-control txt-area" name="Mesazhi" rows="5" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mesazhi juaj';}"></textarea></td>
+                                <td><textarea class="form-control txt-area" name="Mesazhi" rows="5"></textarea></td>
                                 
                             </tr>
                         </tbody>
@@ -106,7 +102,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>                   
                     <div >
                         <form>
-                            <input class="contact-but-blue" type="submit" value="Shto" />
+                            <input class="contact-but-blue" type="submit" name="shtoKontakt" value="Shto" />
                         </form>
                     </div>
                 

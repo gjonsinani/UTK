@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php include("check.php") ;?>
 <?php include_once('config.php'); ?>
 <!DOCTYPE HTML>
 <html>
@@ -48,18 +49,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <!--/navbar header-->		
 			 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				 <ul class="nav navbar-nav">
-					 <li><a href="#">Home</a></li>
-					 <li><a href="#">About</a></li>
-					 <li class="active dropdown">
-						<a href="#" class="scroll dropdown-toggle" data-toggle="dropdown">Kontakti<b class="caret"></b></a>
-						<ul class=" dropdown-menu">
-							<li><a class="active"  href="kontakt.php">Kontaktet</a></li>
-							<li><a  href="suggest.php">Sygjerimet</a></li>
-						</ul>
-					 </li>					
-					 <li><a href="#">Gallery</a></li>
-					 <li><a href="#">Typography</a></li>
-					 <li><a href="#">Contact</a></li>
+					 <li><a href="home.php">Ballina</a></li>
+					 <li><a href="rreth_kosoves.php">Rreth Kosoves</a></li>
+					 <li class="active"><a href="kontakt.php">Kontakti</b></a> </li>
+					 <li><a href="pikat_turistike.php">Pikat Turistike</b></a> </li>
+					 <li><a href="users.php">Perdoruesit</a></li>
+					 <li> <a href="logout.php">Ckycy</a> </li>
 				 </ul>
 				</div>
 			  <!--/navbar collapse-->
@@ -70,7 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 		</div>
 </div>
-<br>
+<br><h4 class="text-right" style="margin-right: 5%;"> Pershendetje, <?php echo $login_user; ?>!</h4>
 <br>
 <!---->
 <div class="contact">
@@ -87,9 +82,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					      <span class="input-group-btn">
 					        <button class="btn btn-default" type="submit">Kërko</button>
 					      </span>
-					    </div><!-- /input-group -->
-  					</div><!-- /.col-lg-6 -->
-			</div>
+					    </div>
+  					</div>
+			
 					<div class="table-responsive" style="width: 100%;">
                     <table class="table" style="width: 100%;">
                         <thead>
@@ -126,6 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     
                 
                 </form>
+                </div>
                 <div class="clearfix"></div>
 			</div>
 			
