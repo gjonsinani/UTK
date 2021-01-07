@@ -58,12 +58,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <!--/navbar header-->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav" style="font-size:12px;">
                              <li><a href="home.php">Ballina</a></li>
                              <li><a href="rreth_kosoves.php">Rreth Kosoves</a></li>
                              <li><a href="kontakt.php">Kontakti</b></a> </li>
                              <li><a href="pikat_turistike.php">Pikat Turistike</b></a> </li>
                              <li><a href="users.php">Perdoruesit</a></li>
+                             <li><a href="menaxhokomunat.php">Komunat</a></li>
+                             <li><a href="manageevents.php">Eventet</a></li>
                              <li> <a href="logout.php">Ckycy</a> </li>
                         </ul>
                         
