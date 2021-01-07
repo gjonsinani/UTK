@@ -8,30 +8,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 	<div class="container" >		 
 	<div class="choose d-choose">
-		 <h3 class="t-h3">Forma për menaxhimin e kontakteve</h3>
+		 <h3 class="t-h3">Forma për menaxhimin e pikave turstike</h3>
 		 <div class="container">		 
 			 <div class="choos-girds">
 				 <div class="col-md-4 choos-grid">
 					 <span class="glyphicon5 glyphicon-plus" style="color:#337ab7 ;" aria-hidden="true"></span>
-					<p>Forma për shtimin e kontaktit.</p>
+					<p>Forma për shtimin e pikave turistike.</p>
 					 <br>
-					 <button onclick="location.href='shto_Kontakt.php'" type="button" class="contact-but-blue">
+					 <button onclick="location.href='shto_pikeT.php'" type="button" class="contact-but-blue">
          Shto</button>
 				 </div>
 
 				 <div class="col-md-4 choos-grid">
 					<span class="glyphicon5 glyphicon-pencil" style="color:#5cb85c ;" aria-hidden="true"></span>
-					<p>Forma për modifikimin e kontakteve.</p>
+					<p>Forma për modifikimin e pikave turistike.</p>
 					<br>
-					<button onclick="location.href='modifiko_Kontakt.php'" type="button" class="contact-but-green">
+					<button onclick="location.href='modifiko_pikeT.php'" type="button" class="contact-but-green">
          Modifiko</button>
 				</div>
 
 				<div class="col-md-4 choos-grid">
 					<span class="glyphicon5 glyphicon-remove" style="color:#d9534f ;" aria-hidden="true"></span>
-					<p>Forma për fshirjen e kontakteve.</p>
+					<p>Forma për fshirjen e pikave turistike.</p>
 					<br>
-					<button onclick="location.href='fshi_Kontakt.php'" type="button" class="contact-but-red">
+					<button onclick="location.href='fshi_pikeT.php'" type="button" class="contact-but-red">
          Fshi</button>
 				</div>
 				 <div class="clearfix"></div>

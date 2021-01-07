@@ -7,7 +7,7 @@
 
 include_once("config.php");
 
-if(isset($_POST['Shto'])) {	
+if(isset($_POST['shtoKontakt'])) {	
 	$emri = $_POST['Emri'];
 	$email = $_POST['Email'];
 	$tel = $_POST['Tel'];
