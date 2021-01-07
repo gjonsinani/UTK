@@ -11,7 +11,7 @@ if (isset($_POST["submit"])) {
 	} else {
 		// Definimi i $username dhe $password
 		$username = $_POST['username'];
-		$password = $_POST['password'];
+		$password = MD5($_POST['password']);
 		//Kontrollo username dhe password prej database
 		$sql = "SELECT uid FROM users WHERE username='$username' 
 			and password='$password'";

@@ -9,7 +9,7 @@ if (isset($_POST['add_user'])) {
 		// if all the fields are filled (not empty) 
 
 		//insert data to database	
-		$result = mysqli_query($conn, "INSERT INTO users (username, password, email) VALUES('$username','$password','$email')");
+		$result = mysqli_query($conn, "INSERT INTO users (username, password, email) VALUES('$username',MD5('$password'),'$email')");
 
 		//display success messPershkrimi
 ?>

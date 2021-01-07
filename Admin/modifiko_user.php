@@ -10,50 +10,70 @@ $result = mysqli_query(
     "SELECT * FROM users ORDER BY uid DESC "
 );
 ?>
-<div class="choose" style="width:80%; margin-left:10%">
-    <form action="" method="post">
-        <table style="width: 100%;">
-            <tr>
-                <h3 style="background-color: #333;">Kërko të dhënat e perdoruesit për modifikim</h3>
-            </tr>
-            <tr>
-                <td style="padding: 2%; ">
-                    Shkruaj:
-                </td>
-                <td>
-                    <input style="width: 100%;" type="text" name="term" placeholder="Kerko perdoruesin" />
-                </td>
-                <td style="padding: 2%; "> <input type="submit" value="Kërko" /></td>
-            </tr>
-            <table width='100%' border=0>
-                <tr bgcolor='#CCCCCC'>
-                    <td>Perdouesi</td>
-                    <td>Email</td>
-                    <td>Fjalekalimi</td>
-                    <td></td>
+<!---->
+<div class="contact">
+    <div class="container">
+        <div class="choose d-choose">
 
-                </tr>
-                <?php
-                if (!empty($_REQUEST['term'])) {
-                    $term = mysqli_real_escape_string($conn, $_REQUEST['term']);
-                    $sql = mysqli_query($conn, "SELECT * FROM users WHERE username LIKE '%" . $term . "%' OR email LIKE '%" . $term . "%' ");
-                    if (!$sql) {
-                        printf("Error: %s\n", mysqli_error($conn));
-                        exit();
-                    }
+            <h3 class="t-h3">Kërko të dhënat e perdoruesit për modifikim</h3>
 
-                    while ($row = mysqli_fetch_array($sql)) {
-                        echo '<tr style="padding:1%; widht:100%">';
-                        echo '<td style="padding:1%;">' . $row['username'] . "</td>";
-                        echo '<td style="padding:1%;">' . $row['email'] . "</td>";
-                        echo '<td style="padding:1%;">' . $row['password'] . "</td>";
-                        echo "<td><a href=\"update_user.php?uid=$row[uid]\"  class='btn btn-primary text-uppercase'>Modifiko</a> </td>";
-                        echo "</tr>";
-                    }
-                }
-                ?>
-            </table>
+            <div class="d-form">
+                <form action="" method="post" class=" footer-bottom ">
+                    <div style="width: 70%; text-align: center; margin:0 15% 2% 15%;">
+                        <div class="input-group">
+                            <input type="text" name="term" class="form-control" placeholder="Emri ose email">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Kërko</button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+            </div>
+            <div class="table-responsive" style="width: 100%;">
+                <table class="table" style="width: 100%; text-align: center;">
+                    <thead>
+                        <tr>
+                            <th>Perdouesi</th>
+                            <th>Email</th>
+                            <th>Fjalekalimi</th>
+                            <th class="t-th">Modifiko</th>
+                        </tr>
+                    </thead>
+                    <tbody style="line-height: 0;text-align: center;">
+                        <?php
+                        if (!empty($_REQUEST['term'])) {
+                            $term = mysqli_real_escape_string($conn, $_REQUEST['term']);
+                            $sql = mysqli_query($conn, "SELECT * FROM users WHERE username LIKE '%" . $term . "%' OR email LIKE '%" . $term . "%' ");
+                            if (!$sql) {
+                                printf("Error: %s\n", mysqli_error($conn));
+                                exit();
+                            }
+
+                            while ($row = mysqli_fetch_array($sql)) {
+
+                                echo "<tr>";
+                                echo "<td>" . $row['username'] . "</td>";
+                                echo "<td>" . $row['email'] . "</td>";
+                                echo "<td>" . $row['password'] . "</td>";
+                                echo "<td><a href=\"update_user.php?uid=$row[uid]\" class='contact-but-green' style='text-decoration:none;' type='submit'>
+										Modifiko</a></td></tr>";
+                            }
+                        }
+
+                        ?>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            </form>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
 </div>
+
+
 <?php
 include("footer.php");
 ?>
