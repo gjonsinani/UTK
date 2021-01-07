@@ -4,55 +4,49 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<?php include_once('config.php'); ?>
 <?php include("header.php"); ?>
 <!---->
 <div class="contact">
 	 <div class="container">
 	 	<div class="choose d-choose">
 			
-				<h3 class="t-h3">Forma për modifikimin e të dhënave të kontaktit</h3>
+				<h3 class="t-h3">Forma për Modifikimin e Sygjerimeve të Përdoruesit</h3>
            
-            <div class="d-form" >
-                <form action="" method="post" class=" footer-bottom ">
-                	<div style="width: 70%; text-align: center; margin:0 15% 2% 15%;">
-					    <div class="input-group">
-					      <input type="text" name="term" class="form-control" placeholder="Emri ose Email-i">
-					      <span class="input-group-btn">
-					        <button class="btn btn-default" type="submit">Kërko</button>
-					      </span>
-					    </div>
-  					</div>
-			
-					<div class="table-responsive" style="width: 100%;">
-                    <table class="table" style="width: 100%;">
+            <div class="d-form">
+                <form class=" footer-bottom ">
+                	<div class="input-group table-responsive" style="margin:5%;">
+						<span class="input-group-addon" id="basic-addon1">Kerko Piken Turistike : </span>
+						<input type="text" class="form-control" placeholder="Emri ose Komuna" aria-describedby="basic-addon1">
+					</div>
+					<div class="table-responsive" >
+                    <table class="table table-responsive">
                         <thead>
                         	<tr>
-	                            <th class="t-th">Emri dhe Mbiemri</th>
-	                            <th class="t-th">Nr. i Telefonit</th>
-	                            <th class="t-th">Email</th>
-	                            <th class="t-th">Mesazhi</th>
-	                            <th class="t-th">Modifiko</th>
+	                            <th class="t-th">Emri</th>
+	                            <th class="t-th">Foto</th>
+	                            <th class="t-th">Video</th>
+	                            <th class="t-th">Linku</th>
+	                            <th class="t-th">Lokacioni</th>
+	                            <th class="t-th">Komuna</th>
+	                            <th class="t-th">Linqe të shpejta</th>
+	                            <th class="t-th">Atraksioni</th>
+	                            <th class="t-th">Pershkrimi</th>
+	                            <th class="t-th">Fshi</th>
                             </tr>
                         </thead>
-                        <tbody style="line-height: 0;text-align: center;">
-                        	<?php
-								if (!empty($_REQUEST['term'])) {
-								$term = ($_REQUEST['term']);     
-								$sql = mysqli_query($conn,"CALL sterm('$term');");
-								while($row = mysqli_fetch_array($sql)) { 		
-										echo "<tr>";
-										echo "<td>".$row['Emri']."</td>";
-										echo "<td>".$row['Email']."</td>";
-										echo "<td>".$row['Tel']."</td>";
-										echo "<td>".$row['Mesazhi']."</td>";	
-										echo "<td><a href=\"update_Kontakt.php?ID_Kontakti=$row[ID_Kontakti]\" class='contact-but-green' style='text-decoration:none;' type='submit'>
-										Modifiko</a></td></tr>";		
-						}
-
-					}
-
-					?>
+                        <tbody style="line-height: 0; border: ">
+                        	<tr>
+                        		<td>Maja e Lybetenit</td>
+                        		<td>img.png</td> 
+                        		<td>vid.mp4</td>
+                        		<td>https://goo.gl/maps/H1tJSsgsLQB6uSE37</td>
+                        		<td>Shtërpc</td>  
+                        		<td>Ferizaj</td>  
+                        		<td>www.fb.com/komunaeferizajit</td>  
+                        		<td>Natyror</td>  
+                        		<td>TEXT</td>  
+                        		<td><input class="contact-but-red" type="submit" value="Fshi" /></td>                          	
+                            </tr>
                             
 	                    </tbody>
 	                </table>
@@ -62,7 +56,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </form>
                 </div>
                 <div class="clearfix"></div>
-			</div>
+			
 			
 		 </div>
 	 </div>
