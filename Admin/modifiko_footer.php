@@ -3,55 +3,67 @@
 include("header.php");
 include_once("config.php");
 
-
 //fetching data in descending order (lastest entry first)
 $result = mysqli_query(
     $conn,
     "SELECT * FROM footer ORDER BY id_footer DESC "
 );
 ?>
-<div class="choose" style="width:80%; margin-left:10%">
-    <form action="" method="post">
-        <table style="width: 100%;">
-            <tr>
-                <h3 style="background-color: #333;">Kërko të dhënat e footerit për modifikim</h3>
-            </tr>
-            <tr>
-                <td style="padding: 2%; ">
-                    Shkruaj:
-                </td>
-                <td>
-                    <input style="width: 100%;" type="text" name="term" placeholder="Kerko pershkrimin ose ikonen" />
-                </td>
-                <td style="padding: 2%; "> <input type="submit" value="Kërko" /></td>
-            </tr>
-            <table width='100%' border=0>
-                <tr bgcolor='#CCCCCC'>
-                    <td>Pershkrimi</td>
-                    <td>Ikonat</td>
-                    <td></td>
+<!---->
+<div class="contact">
+    <div class="container">
+        <div class="choose d-choose">
 
-                </tr>
-                <?php
-                if (!empty($_REQUEST['term'])) {
-                    $term = mysqli_real_escape_string($conn, $_REQUEST['term']);
-                    $sql = mysqli_query($conn, "SELECT * FROM footer WHERE pershkrimi LIKE '%" . $term . "%' OR  ikonat LIKE '%" . $term . "%' ");
-                    if (!$sql) {
-                        printf("Error: %s\n", mysqli_error($conn));
-                        exit();
-                    }
+            <h3 class="t-h3">Forma për modifikimin e Footer-it</h3>
 
-                    while ($row = mysqli_fetch_array($sql)) {
-                        echo '<tr style="padding:1%; widht:100%">';
-                        echo '<td style="padding:1%;">' . $row['pershkrimi'] . "</td>";
-                        echo '<td style="padding:1%;">' . $row['ikonat'] . "</td>";
-                        echo "<td><a href=\"update_footer.php?id_footer=$row[id_footer]\"  class='btn btn-primary text-uppercase'>Modifiko</a> </td>";
-                        echo "</tr>";
-                    }
-                }
-                ?>
-            </table>
+            <div class="d-form">
+                <form action="" method="post" class=" footer-bottom ">
+                    <div style="width: 70%; text-align: center; margin:0 15% 2% 15%;">
+                        <div class="input-group">
+                            <input type="text" name="term" class="form-control" placeholder="Pershkrimi ose ikona">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Kërko</button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+            </div>
+            <div class="table-responsive" style="width: 100%;">
+                <table class="table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th class="t-th">Pershkrimi</th>
+                            <th class="t-th">Ikona</th>
+                            <th class="t-th">Modifiko</th>
+                        </tr>
+                    </thead>
+                    <tbody style="line-height: 0;text-align: center;">
+                        <?php
+                        if (!empty($_REQUEST['term'])) {
+                            $term = ($_REQUEST['term']);
+                            $sql = mysqli_query($conn, "SELECT * FROM footer WHERE pershkrimi LIKE '%" . $term . "%' OR  ikonat LIKE '%" . $term . "%' ");
+                            while ($row = mysqli_fetch_array($sql)) {
+                                echo "<tr>";
+                                echo "<td>" . $row['pershkrimi'] . "</td>";
+                                echo "<td>" . $row['ikonat'] . "</td>";
+                                echo "<td><a href=\"update_footer.php?id_footer=$row[id_footer]\" class='contact-but-green' style='text-decoration:none;' type='submit'>
+										Modifiko</a></td></tr>";
+                            }
+                        }
+
+                        ?>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            </form>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
 </div>
+
 <?php
 include("footer.php");
 ?>
