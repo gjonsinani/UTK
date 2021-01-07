@@ -7,29 +7,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <?php
 /* Faqja (home.php) e cila paraqitet pasi perdoruesi te llogohet me sukses */
 	include("check.php");	
-	
+?>
+<?php
+//including the database connection file
+include_once("config.php");
+
+//fetching data in descending order (lastest entry first)
 ?>
 
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Shto Komunë - Menagjimi i Komunave</title>
+<title>Edit Event - Events Managements</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<link rel="stylesheet" type="text/css" href="css/style2.css">
 <link rel="stylesheet" href="css/lightbox.css">
+<link rel="stylesheet" type="text/css" href="css/style2.css">
 
-<script type='text/javascript'>
-function preview_image(event) 
-{
- var reader = new FileReader();
- reader.onload = function()
- {
-  var output = document.getElementById('output_image');
-  output.src = reader.result;
- }
- reader.readAsDataURL(event.target.files[0]);
-}
-</script>
 
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -97,65 +90,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <br>
 <br>
 <br>
-<div class="container">	
-	<div class="choose d-choose">
-		<h3 class="t-h3">Forma për Shtimin e Komunave</h3>
-           <div class="container">
-           	<div class="div-form">
-           		<form class="footer-bottom" method="post" action="shtoKomune.php" enctype="multipart/form-data" >
-           			<div class="table-responsive">
-           				<table class="table">
-           					<tbody>
-           						
-           						<tr>
-           							<td class="t-td">Emri i Komunes: </td>
-           							 <td><input class="form-control" type="text" name="EmriKomunes"/></td>
-           						</tr>
-           						<tr>
-           							<td class="t-td">Ngarko Emblemën e Komunes: </td>
-													
-												
-													<td>
-														<input name="Emblema" type="file" onchange="preview_image(event)"/>
-														<input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
-														<br>
-														<img id="output_image" style="max-width:100px; display: block;" />
-													</td>
-												</tr>
-												
+	 <div class="contact">
+	 	<div class="container">
+	 		<div class="choose d-choose">
+	 			<h3 class="t-h3">Forma për fshirjen e Komunave</h3>
 
-														<!--<input type="file" name="Emblema" value="" onchange="preview_image(event)"/>
-														//<br>
-                                                       //<img id="output_image" style="max-width:200px; display: block;" />
-                                                   
--->
-													</td>
-													
-								</tr>
+	 			<div class="d-form" >
+               
+                <form action="" method="post" class=" footer-bottom ">
+                	
+                		<div style="width: 70%; text-align: center; margin:0 15% 2% 15%;">
+					    <div class="input-group">
+					      <input type="text" name="term" class="form-control" placeholder="Emri i Komunes">
+					      <span class="input-group-btn">
+					        <button class="btn btn-default" type="submit">Kërko</button>
+					      </span>
+					      </div><!-- /input-group -->
+					  </div>
+	 	<div class="table-responsive" style="width: 100%;">
+                    <table class="table" style="width: 100%;">
+                        <thead>
+                        	<tr>
+	                            <th class="t-th">Emri i Komunes</th>
+	                            <th class="t-th">Emblema e Komunes</th>
+	                            <th class="t-th">Fshije</th>
+                            </tr>
+                        </thead>
+                        </thead>
+                        <tbody style="line-height: 0;text-align: center;">
+                        	<?php
+								if (!empty($_REQUEST['term'])) {
+								$term = ($_REQUEST['term']);     
+								$sql = mysqli_query($conn,"CALL sterm_komunat('$term');");
+								while($row = mysqli_fetch_array($sql)) { 		
+										echo "<tr>";
+										echo "<td>".$row['EmriKomunes']."</td>";
+										echo "<td>"."<img style='max-width:70px;' src='images/".$row['Emblema']."' >"."</td>";
+										echo "<td><a href=\"deletekomune.php?ID_Komuna=$row[ID_Komuna]\" onClick=\"return confirm('A jeni te sigurt se deshironi te fshini Komunën?')\" class='contact-but-red' style='text-decoration:none;'>
+										Fshi</a></td></tr>";		
+						}
 
-           						
+					}
 
-                            </tbody>
-                            
-                    </table>
-                    </div> 
-                    <br>
-                    <br>
+					?>
+	                    </tbody>
+	                </table>
+	                </div>              
+	                </form>   
+	                <div class="clearfix"></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
-                    <div >
-                        <form>
-                            <input class="contact-but-blue" type="submit" value="Shto" name="submit" />
-                        </form>
-                    </div>
-                
-                </form>
-                <div class="clearfix"></div>
-			</div>
-			
+
+	
 		 
-	 </div>
-</div>
-		 	 
+				 
+	</div>			 
+
 	
 
 

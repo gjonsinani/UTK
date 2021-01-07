@@ -7,29 +7,64 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <?php
 /* Faqja (home.php) e cila paraqitet pasi perdoruesi te llogohet me sukses */
 	include("check.php");	
-	
 ?>
+
+<?php
+// including the database connection file
+include_once("config.php");
+
+if(isset($_POST['update_Komune']))
+{	
+	$ID_Komuna = $_POST['ID_Komuna'];
+	$emriKomunes=$_POST['EmriKomunes'];
+	
+	$imgData =addslashes (file_get_contents($_FILES['Emblema']['tmp_name']));
+	$Emblema = $_FILES['Emblema']['name'];
+	$maxsize = 10000000; //set to approx 10 MB
+	
+	// checking empty fields
+	if(empty($emriKomunes) || empty($Emblema)) {	
+			
+		if(empty($emriKomunes)) {
+			echo "<font color='red'>Emri field is empty.</font><br/>";
+		}
+		
+		if(empty($Emblema)) {
+			echo "<font color='red'>Mbiemri field is empty.</font><br/>";
+		}
+	} else {	
+		//updating the table
+		$result = mysqli_query($conn,"UPDATE komunat SET EmriKomunes='$emriKomunes', EmblemaBlob='$imgData', Emblema='$Emblema' WHERE ID_Komuna=$ID_Komuna");
+		
+		//redirectig to the display message. In our case, it is ballina.php
+		header("Location: menaxhokomunat.php");
+	}
+}
+?>
+<?php
+//getting ID_Stud from url
+$ID_Komuna = $_GET['ID_Komuna'];
+
+//selecting data associated with this particular ID_Stud
+$result = mysqli_query($conn,"SELECT * FROM komunat WHERE ID_Komuna=$ID_Komuna");
+
+while($res = mysqli_fetch_array($result))
+{
+	$emriKomunes = $res['EmriKomunes'];
+	$Emblema = $res['Emblema'];
+}
+?>
+
 
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Shto Komunë - Menagjimi i Komunave</title>
+<title>Update Komunë - Menagjimi i Komunave</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" type="text/css" href="css/style2.css">
 <link rel="stylesheet" href="css/lightbox.css">
 
-<script type='text/javascript'>
-function preview_image(event) 
-{
- var reader = new FileReader();
- reader.onload = function()
- {
-  var output = document.getElementById('output_image');
-  output.src = reader.result;
- }
- reader.readAsDataURL(event.target.files[0]);
-}
-</script>
+
 
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -99,39 +134,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <br>
 <div class="container">	
 	<div class="choose d-choose">
-		<h3 class="t-h3">Forma për Shtimin e Komunave</h3>
+		<h3 class="t-h3">Forma për Modifikimin e te dhenave te Komunes</h3>
            <div class="container">
            	<div class="div-form">
-           		<form class="footer-bottom" method="post" action="shtoKomune.php" enctype="multipart/form-data" >
+           		<form class="footer-bottom" method="post" Komuna="form1" action="update_Komune.php" enctype="multipart/form-data" >
            			<div class="table-responsive">
            				<table class="table">
            					<tbody>
+
+
+
            						
            						<tr>
            							<td class="t-td">Emri i Komunes: </td>
-           							 <td><input class="form-control" type="text" name="EmriKomunes"/></td>
+           							 <td><input class="form-control" type="text" name="EmriKomunes" value="<?php echo $emriKomunes?>" /></td>
            						</tr>
-           						<tr>
+           					
+           							<tr>
            							<td class="t-td">Ngarko Emblemën e Komunes: </td>
-													
-												
-													<td>
-														<input name="Emblema" type="file" onchange="preview_image(event)"/>
-														<input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
-														<br>
-														<img id="output_image" style="max-width:100px; display: block;" />
+           							                <td><input name="Emblema" type="file" /></td>
+													<input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+			                                          
 													</td>
-												</tr>
-												
-
-														<!--<input type="file" name="Emblema" value="" onchange="preview_image(event)"/>
-														//<br>
-                                                       //<img id="output_image" style="max-width:200px; display: block;" />
-                                                   
--->
-													</td>
-													
-								</tr>
+									</tr>
+									<tr>
+										<td><input type="hidden" name="ID_Komuna" value='<?php echo $_GET['ID_Komuna'];?>' /></td>
+									
+									</tr>		
+								
 
            						
 
@@ -141,12 +171,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div> 
                     <br>
                     <br>
-
                     <div >
                         <form>
-                            <input class="contact-but-blue" type="submit" value="Shto" name="submit" />
+                            <input class="contact-but-blue" name="update_Komune" type="submit" value="Modifiko" />
                         </form>
                     </div>
+
+                    
                 
                 </form>
                 <div class="clearfix"></div>
