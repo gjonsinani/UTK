@@ -15,6 +15,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 	<div class="table-responsive">
                     <table class="table">
                             <tbody>
+
+
+                                
                             <tr>
                                 <td class="t-td">Emri i Pikës Turistike: </td>
                                 <td><input class="form-control" type="text" name="emri-pika" /></td>
