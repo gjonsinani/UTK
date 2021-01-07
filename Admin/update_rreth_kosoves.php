@@ -73,4 +73,4 @@ while ($res = mysqli_fetch_array($result)) {
 
 <?php
 include("footer.php");
-?>
+?> 
