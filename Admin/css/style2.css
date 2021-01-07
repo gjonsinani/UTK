@@ -1,0 +1,46 @@
+.t-td{
+	font-weight:bold !important; 
+	color:black !important;
+	text-align: right !important;
+}
+
+.txt-area{
+	resize: none;
+	overflow-y: scroll;
+}
+
+
+.d-form{
+	width:100%; text-align:center; 
+	margin:5% 0 2% 0;
+	padding: 0;
+}
+
+.div-form{
+	width:90%; text-align:center; 
+	margin:5% 0 2% 0;
+	padding: 0;
+}
+
+.d-choose{
+	border:solid #526069 1px;
+}
+
+.t-h3{
+	background: #333 !important;
+	color: #fff !important;
+}
+
+.t-th{
+	font-weight:bold !important;
+	color:black !important; 
+	text-align: center !important;
+}
+
+.tdtable{
+	color:black;
+}
+
+.link-href{
+	text-decoration: none !important;
+}
