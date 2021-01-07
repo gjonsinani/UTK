@@ -4,17 +4,13 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-
-<?php include_once('config.php'); ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Modifiko Komuna</title>
+<title>UTK</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="css/lightbox.css">
 <link rel="stylesheet" type="text/css" href="css/style2.css">
-
-
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
@@ -48,24 +44,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<span class="icon-bar"></span>
 				</button>				
 			 </div>
-			  <!--/navbar header-->		
+			 <!--/navbar header-->		
 			 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				 <ul class="nav navbar-nav">
-					 <li><a href="index.html">Home</a></li>
-					 <li><a href="about.html">About</a></li>
-					 <li class="dropdown">
-						<a href="#" class="scroll dropdown-toggle" data-toggle="dropdown">Destinations<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a class="scroll" href="#destination">Destination 1</a></li>
-							<li><a class="scroll" href="#destination">Destination 2</a></li>
-							<li><a class="scroll" href="#destination">Destination 3</a></li>
-							<li><a class="scroll" href="#destination">Destination 4</a></li>
+					 <li><a href="#">Home</a></li>
+					 <li><a href="#">About</a></li>
+					 <li class="active dropdown">
+						<a href="#" class="scroll dropdown-toggle" data-toggle="dropdown">Kontakt<b class="caret"></b></a>
+						<ul class=" dropdown-menu">
+							<li><a  href="kontakt.php">Kontakti</a></li>
+							<li><a  href="suggest.php">Sygjerimet</a></li>
 						</ul>
-					 </li>
-					 <li class="active"><a href="manageevents.php">Eventet</a></li>					
-					 <li><a href="gallery.html">Gallery</a></li>
-					 <li><a href="typo.html">Typography</a></li>
-					 <li><a href="contact.html">Contact</a></li>
+					 </li>					
+					 <li><a href="#">Gallery</a></li>
+					 <li><a href="#">Typography</a></li>
+					 <li><a href="#">Contact</a></li>
 				 </ul>
 				</div>
 			  <!--/navbar collapse-->
@@ -76,82 +69,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 		</div>
 </div>
+<br>
+<br>
 <!---->
-<br>
-<br>
-<br>
-<br>
-	 <div class="contact">
-	 	<div class="container">
-	 		<div class="choose d-choose">
-	 			<h3 class="t-h3">Forma për modifikimin e të dhënave të Komunes</h3>
 
-	 			<div class="d-form" >
-               
-                <form action="" method="post" class=" footer-bottom ">
-                	
-                		<div style="width: 70%; text-align: center; margin:0 15% 2% 15%;">
-					    <div class="input-group">
-					      <input type="text" name="term" class="form-control" placeholder="Emri i Komunes">
-					      <span class="input-group-btn">
-					        <button class="btn btn-default" type="submit">Kërko</button>
-					      </span>
-					      </div><!-- /input-group---->
-					  </div>
-	 	<div class="table-responsive" style="width: 100%;">
-                    <table class="table" style="width: 100%;">
-                        <thead>
-                        	<tr>
-	                            <th class="t-th">Emri i Komunes</th>
-	                            <th class="t-th">Emblema e Komunes</th>
-	                            <th class="t-th">Modifiko</th>
-                            </tr>
-                        </thead>
-                        <tbody style="line-height: 0;text-align: center;">
-                        	<?php
-								if (!empty($_REQUEST['term'])) {
-								$term = ($_REQUEST['term']);     
-								$sql = mysqli_query($conn,"CALL sterm_komunat('$term');");
-								while($row = mysqli_fetch_array($sql)) { 		
-										echo "<tr>";
-										echo "<td>".$row['EmriKomunes']."</td>";
-										echo "<td>"."<img style='max-width:70px;' src='images/".$row['Emblema']."' >"."</td>";
-										
+	<div class="container" >		 
+	<div class="choose d-choose">
+		 <h3 class="t-h3">Forma për Menaxhimin e Sygjerimeve Të Përdoruesit</h3>
+		 <div class="container">		 
+			 <div class="choos-girds">
+				 <div class="col-md-4 choos-grid">
+					 <span class="glyphicon5 glyphicon-plus" style="color:#337ab7 ;" aria-hidden="true"></span>
+					<p>Forma për shtimin e sygjerimit.</p>
+					 <br>
+					 <button onclick="location.href='shto_sygjerim.php'" type="button" class="contact-but-blue">
+         Shto</button>
+				 </div>
 
+				 <div class="col-md-4 choos-grid">
+					<span class="glyphicon5 glyphicon-pencil" style="color:#5cb85c ;" aria-hidden="true"></span>
+					<p>Forma për modifikimin e sygjerimeve.</p>
+					<br>
+					<button onclick="location.href='modifiko_sygjerim.php'" type="button" class="contact-but-green">
+         Modifiko</button>
+				</div>
 
-										echo "<td><a href=\"update_Komune.php?ID_Komuna=$row[ID_Komuna]\" class='contact-but-green' style='text-decoration:none;' type='submit'>
-										Modifiko</a></td></tr>";		
-						}
-
-					}
-
-					?>
-                            
-	                    </tbody>
-	                </table>
-	                </div>              
-	                </form>   
-	                <div class="clearfix"></div>
-	            </div>
-	        </div>
-	    </div>
+				<div class="col-md-4 choos-grid">
+					<span class="glyphicon5 glyphicon-remove" style="color:#d9534f ;" aria-hidden="true"></span>
+					<p>Forma për fshirjen e sygjerimeve.</p>
+					<br>
+					<button onclick="location.href='fshi_sygjerim.php'" type="button" class="contact-but-red">
+         Fshi</button>
+				</div>
+				 <div class="clearfix"></div>
+			 </div>
+		 </div>
 	</div>
 
 
-	
-		 
-				 
-	</div>			 
+<!-- footer -->
 
-	
-
-
-<div class="copywrite">
-	 <div class="container">
-			 <p> © 2015 Goaway. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-	 </div>
-</div>
-
+<footer>
+	<div class="copywrite">
+		 <div class="container">
+				 <p> © 2015 Goaway. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+		 </div>
+	</div>
+</footer>
 <!---->
 <script src="js/lightbox-plus-jquery.min.js"></script>
 <!---->
