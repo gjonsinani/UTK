@@ -7,7 +7,7 @@ include_once("config.php");
 //fetching data in descending order (lastest entry first)
 $result = mysqli_query(
     $conn,
-    "SELECT * FROM footer ORDER BY id_footer DESC "
+    "SELECT * FROM rrethkosoves ORDER BY id_rrk DESC "
 );
 ?>
 
