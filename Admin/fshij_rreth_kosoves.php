@@ -49,6 +49,7 @@ $result = mysqli_query(
 								while($row = mysqli_fetch_array($sql)) { 		
 										echo "<tr>";
 										echo "<td>".$row['ikona']."</td>";
+										
 										echo "<td>".$row['titulli']."</td>";
 										echo "<td>".$row['pershkrimi']."</td>";
 										echo "<td><a href=\"delete_rreth_kosoves.php?id_rrk=$row[id_rrk]\" class='contact-but-red' style='text-decoration:none;' type='submit'>
