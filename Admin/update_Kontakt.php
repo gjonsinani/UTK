@@ -46,7 +46,7 @@ if(isset($_POST['update']))
 $ID_Kontakti = $_GET['ID_Kontakti'];
 
 //selecting data associated with this particular uid
-$result = mysqli_query($conn,"SELECT * FROM kontaktet WHERE ID_Kontakti=$ID_Kontakti");
+$result = mysqli_query($conn,"CALL PROCEDURE selectKontakt('$ID_Kontakti')");
 while($res = mysqli_fetch_array($result))
 {
 	$Emri = $res['Emri'];
@@ -100,12 +100,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <!--/navbar header-->		
 			 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				 <ul class="nav navbar-nav">
-					 <li><a href="home.php">Ballina</a></li>
-					 <li><a href="rreth_kosoves.php">Rreth Kosoves</a></li>
-					 <li class="active"><a href="kontakt.php">Kontakti</b></a> </li>
-					 <li><a href="pikat_turistike.php">Pikat Turistike</b></a> </li>
-					 <li><a href="users.php">Perdoruesit</a></li>
-					 <li> <a href="logout.php">Ckycy</a> </li>
+					 <li><a href="#">Home</a></li>
+					 <li><a href="#">About</a></li>
+					 <li class="active dropdown">
+						<a href="#" class="scroll dropdown-toggle" data-toggle="dropdown">Kontakt<b class="caret"></b></a>
+						<ul class=" dropdown-menu">
+							<li><a  href="kontakt.php">Kontakti</a></li>
+							<li><a  href="suggest.php">Sygjerimet</a></li>
+						</ul>
+					 </li>					
+					 <li><a href="#">Gallery</a></li>
+					 <li><a href="#">Typography</a></li>
+					 <li><a href="#">Contact</a></li>
 				 </ul>
 				</div>
 			  <!--/navbar collapse-->
@@ -116,7 +122,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 		</div>
 </div>
-<br> <h4 class="text-right" style="margin-right: 5%;"> Pershendetje, <?php echo $login_user; ?>!</h4>
+<br>
 <br>
 <!---->
 <div class="container">	
