@@ -13,7 +13,7 @@ if(isset($_POST['add_rreth_kosoves'])) {
 		// if all the fields are filled (not empty) 
 
 		//insert data to database	
-		$result = mysqli_query($conn, "INSERT INTO rrethkosoves ( ikona, titulli, pershkrimi,) VALUES('$ikona', '$titulli', '$pershkrimi',)");
+		$result = mysqli_query($conn, "INSERT INTO rrethkosoves ( ikona, titulli, pershkrimi) VALUES('$ikona', '$titulli', '$pershkrimi')");
 
 		//display success messPershkrimi
 		?>
