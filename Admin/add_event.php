@@ -16,16 +16,53 @@ if(isset($_POST['add_event'])) {
 	
 	
   $total = count($_FILES['images']['tmp_name']);
+  $total==$total+1;
   for($i=0;$i<$total;$i++){
-    $fileName = $_FILES['images']['name'][$i];
-    $ext = pathinfo($fileName, PATHINFO_EXTENSION);
-    $newFileName = md5(uniqid());
-    $fileDest = 'images/'.$newFileName.'.'.$ext;
+  	if($i===1){
+  	$fileName1 = $_FILES['images']['name'][$i];
+    $ext = pathinfo($fileName1, PATHINFO_EXTENSION);
+    $fileDest1 = 'images/'.$fileName1.'.'.$ext;
     if($ext === 'pdf' || 'jpeg' || 'JPG'){
-        move_uploaded_file($_FILES['images']['tmp_name'][$i], $fileDest);
+        move_uploaded_file($_FILES['images']['tmp_name'][$i], $fileDest1);
     }else{
       echo 'Pdfs and jpegs only please';
     }
+
+  	}
+  	if ($i===2) {
+  	$fileName2 = $_FILES['images']['name'][$i];
+    $ext = pathinfo($fileName2, PATHINFO_EXTENSION);
+    $fileDest2 = 'images/'.$fileName2.'.'.$ext;
+    if($ext === 'pdf' || 'jpeg' || 'JPG'){
+        move_uploaded_file($_FILES['images']['tmp_name'][$i], $fileDest2);
+    }else{
+      echo 'Pdfs and jpegs only please';
+    }
+
+  	}
+  	if ($i===3) {
+  	$fileName3 = $_FILES['images']['name'][$i];
+    $ext = pathinfo($fileName3, PATHINFO_EXTENSION);
+    $fileDest3 = 'images/'.$fileName3.'.'.$ext;
+    if($ext === 'pdf' || 'jpeg' || 'JPG'){
+        move_uploaded_file($_FILES['images']['tmp_name'][$i], $fileDest3);
+    }else{
+      echo 'Pdfs and jpegs only please';
+    }
+    
+  	}
+  	else{
+    $fileName4 = $_FILES['images']['name'][$i];
+    $ext = pathinfo($fileName4, PATHINFO_EXTENSION);
+    $fileDest4 = 'images/'.$fileName4.'.'.$ext;
+    if($ext === 'pdf' || 'jpeg' || 'JPG'){
+        move_uploaded_file($_FILES['images']['tmp_name'][$i], $fileDest4);
+    }else{
+      echo 'Pdfs and jpegs only please';
+    }
+    
+  	}
+    
   }
 
 	
@@ -56,7 +93,7 @@ if(isset($_POST['add_event'])) {
 		// if all the fields are filled (not empty) 
 			
 		//insert data to database	
-		$result = mysqli_query($conn, "INSERT INTO eventet(TitulliEventit,PershkrimiEventit,DataEventit, ID_Komuna, LlojiEventit,Foto) VALUES('$TitulliEventit','$PershkrimiEventit','$DataEventit','$ID_Komuna','$LlojiEventit','$newFileName')");
+		$result = mysqli_query($conn, "INSERT INTO eventet(TitulliEventit,PershkrimiEventit,DataEventit, ID_Komuna, LlojiEventit,Foto1,Foto2,Foto3,Foto4) VALUES('$TitulliEventit','$PershkrimiEventit','$DataEventit','$ID_Komuna','$LlojiEventit','$fileDest1','$fileDest2','$fileDest3','$fileDest4')");
 		
 		//display success message
 			echo "<script>
