@@ -5,10 +5,12 @@ include_once("config.php");
 
 
 //fetching data in descending order (lastest entry first)
-$result = mysqli_query(
-    $conn,
-    "SELECT * FROM users ORDER BY uid DESC "
-);
+$result = mysqli_query($conn, "CALL selectUser()");
+
+// $result = mysqli_query(
+//     $conn,
+//     "SELECT * FROM users ORDER BY uid DESC "
+// );
 ?>
 <!---->
 <div class="contact">
@@ -42,12 +44,7 @@ $result = mysqli_query(
                         <?php
                         if (!empty($_REQUEST['term'])) {
                             $term = mysqli_real_escape_string($conn, $_REQUEST['term']);
-                            $sql = mysqli_query($conn, "SELECT * FROM users WHERE username LIKE '%" . $term . "%' OR email LIKE '%" . $term . "%' ");
-                            if (!$sql) {
-                                printf("Error: %s\n", mysqli_error($conn));
-                                exit();
-                            }
-
+                            $sql = mysqli_query($conn, "CALL selectTERMUser('$term')");
                             while ($row = mysqli_fetch_array($sql)) {
 
                                 echo "<tr>";

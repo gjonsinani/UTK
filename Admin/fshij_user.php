@@ -5,10 +5,11 @@ include_once("config.php");
 
 
 //fetching data in descending order (lastest entry first)
-$result = mysqli_query(
-    $conn,
-    "SELECT * FROM users ORDER BY uid DESC "
-);
+$result = mysqli_query($conn, "CALL selectUser()");
+// $result = mysqli_query(
+//     $conn,
+//     "SELECT * FROM users ORDER BY uid DESC "
+// );
 ?>
 <div class="contact">
     <div class="container">
@@ -40,14 +41,14 @@ $result = mysqli_query(
                     <tbody style="line-height: 0;text-align: center;">
                         <?php
                         if (!empty($_REQUEST['term'])) {
-                            $term = ($_REQUEST['term']);
-                            $sql = mysqli_query($conn, "SELECT * FROM users WHERE username LIKE '%" . $term . "%' OR  email LIKE '%" . $term . "%' ");
+                            $term = mysqli_real_escape_string($conn, $_REQUEST['term']);
+                            $sql = mysqli_query($conn, "CALL selectTERMUser('$term')");
                             while ($row = mysqli_fetch_array($sql)) {
                                 echo "<tr>";
                                 echo "<td>" . $row['username'] . "</td>";
                                 echo "<td>" . $row['email'] . "</td>";
                                 echo "<td>" . $row['password'] . "</td>";
-                                echo "<td><a href=\"delete_user.php?uid=$row[uid]\" class='contact-but-red' style='text-decoration:none;' type='submit'>
+                                echo "<td><a href=\"delete_user.php?uid=$row[uid]\" onClick=\"return confirm('Are you sure you want to delete?')\" class='contact-but-red' style='text-decoration:none;' type='submit'>
 										Fshijë</a></td></tr>";
                             }
                         }

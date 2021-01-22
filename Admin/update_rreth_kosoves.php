@@ -8,17 +8,44 @@ if (isset($_POST['update_rreth_kosoves'])) {
 	$ikona = $_POST['ikona'];
 	$titulli = $_POST['titulli'];
 	$pershkrimi = $_POST['pershkrimi'];
-	$imgData =addslashes (file_get_contents($_FILES['userfile']['tmp_name']));
+	$imgData = addslashes(file_get_contents($_FILES['userfile']['tmp_name']));
 	$name = $_FILES['userfile']['name'];
 	$maxsize = 10000000; //set to approx 10 MB
- {
-		//updating the table
-		$result = mysqli_query($conn, "UPDATE rrethkosoves SET  ikona='$ikona', titulli='$titulli', pershkrimi='$pershkrimi', images='$imgData', name='$name' WHERE id_rrk=$id_rrk");
 
-		//redirectig to the display message. In our case, it is home.php
-		header("Location: rreth_kosoves.php");
+	if (empty($ikona) || empty($titulli) || empty($pershkrimi) || empty($imgData)) {
+
+		if (empty($ikona)) {
+			echo "<font color='red'>Ikona field is empty.</font><br/>";
+		}
+
+		if (empty($titulli)) {
+			echo "<font color='red'>Titulli field is empty.</font><br/>";
+		}
+
+		if (empty($pershkrimi)) {
+			echo "<font color='red'>Pershkrimi field is empty.</font><br/>";
+		}
+		if (empty($imgData)) {
+			echo "<font color='red'>Foto field is empty.</font><br/>";
+		}
+	} else {
+		//updating the table
+		mysqli_query($conn, "SET @id_rrk = ${id_rrk}");
+		mysqli_query($conn, "SET @ikona = '${ikona}'");
+		mysqli_query($conn, "SET @titulli = '${titulli}'");
+		mysqli_query($conn, "SET @pershkrimi = '${pershkrimi}'");
+		mysqli_query($conn, "SET @imgData = '${imgData}'");
+		mysqli_query($conn, "SET @name = '${name}'");
+		$result = mysqli_query($conn, "CALL updateRrKs(@id_rrk,@ikona,@titulli,@pershkrimi,@imgData,@name)");
+		if ($result) {
+			//redirectig to the display pProgrami. In our case, it is admin.php
+			header("Location: rrethkosoves.php");
+		} else {
+			die("Coudn't execute update procedure!");
+		}
 	}
 }
+
 ?>
 <?php
 //getting id_footer from url

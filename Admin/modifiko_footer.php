@@ -4,10 +4,12 @@ include("header.php");
 include_once("config.php");
 
 //fetching data in descending order (lastest entry first)
-$result = mysqli_query(
-    $conn,
-    "SELECT * FROM footer ORDER BY id_footer DESC "
-);
+$result = mysqli_query($conn, "CALL selectFooter()");
+
+// $result = mysqli_query(
+//     $conn,
+//     "SELECT * FROM footer ORDER BY id_footer DESC "
+// );
 ?>
 <!---->
 <div class="contact">
@@ -32,6 +34,7 @@ $result = mysqli_query(
                     <thead>
                         <tr>
                             <th class="t-th">Pershkrimi</th>
+                            <th class="t-th">Linku</th>
                             <th class="t-th">Ikona</th>
                             <th class="t-th">Modifiko</th>
                         </tr>
@@ -39,11 +42,12 @@ $result = mysqli_query(
                     <tbody style="line-height: 0;text-align: center;">
                         <?php
                         if (!empty($_REQUEST['term'])) {
-                            $term = ($_REQUEST['term']);
-                            $sql = mysqli_query($conn, "SELECT * FROM footer WHERE pershkrimi LIKE '%" . $term . "%' OR  ikonat LIKE '%" . $term . "%' ");
+                            $term = mysqli_real_escape_string($conn, $_REQUEST['term']);
+                            $sql = mysqli_query($conn, "CALL selectTERMFooter('$term')");
                             while ($row = mysqli_fetch_array($sql)) {
                                 echo "<tr>";
                                 echo "<td>" . $row['pershkrimi'] . "</td>";
+                                echo "<td>" . $row['link'] . "</td>";
                                 echo "<td>" . $row['ikonat'] . "</td>";
                                 echo "<td><a href=\"update_footer.php?id_footer=$row[id_footer]\" class='contact-but-green' style='text-decoration:none;' type='submit'>
 										Modifiko</a></td></tr>";

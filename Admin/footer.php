@@ -1,12 +1,13 @@
 		<!-- footer -->
 		<?php
-		$result = mysqli_query($conn, "SELECT * FROM footer order by id_footer ASC limit 5 ");
-		while ($row = mysqli_fetch_array($result)) {
-			extract($row);
-			if ($result == null)
-				mysqli_free_result($result);
+		// $result = mysqli_query($conn, "SELECT * FROM footer order by id_footer ASC limit 5 ");
+		// while ($row = mysqli_fetch_array($result)) {
+		// 	extract($row);
+		// 	if ($result == null)
+		// 		mysqli_free_result($result);
+		$result = mysqli_query($conn,"CALL selectFooterOByIDINOUT()");
+
 		?>
-		<?php } ?>
 
 
 		<footer style="margin-top: 5%">

@@ -6,9 +6,31 @@ include_once("config.php");
 if (isset($_POST['update_footer'])) {
 	$id_footer = $_POST['id_footer'];
 	$pershkrimi = $_POST['pershkrimi'];
-	$ikonat = $_POST['ikonat']; {
+	$link = $_POST['link'];
+	$ikonat = $_POST['ikonat'];
+	if (empty($pershkrimi) || empty($link) || empty($ikonat)) {
+
+		if (empty($pershkrimi)) {
+			echo "<font color='red'>Pershkrimi field is empty.</font><br/>";
+		}
+
+		if (empty($link)) {
+			echo "<font color='red'>Linku field is empty.</font><br/>";
+		}
+
+		if (empty($ikonat)) {
+			echo "<font color='red'>Ikona field is empty.</font><br/>";
+		}
+	} else {
+
+		mysqli_query($conn, "SET @id_footer = ${id_footer}");
+		mysqli_query($conn, "SET @pershkrimi = '${pershkrimi}'");
+		mysqli_query($conn, "SET @link = '${link}'");
+		mysqli_query($conn, "SET @ikonat = '${ikonat}'");
+		$result = mysqli_query($conn, "CALL updateFooter(@id_footer,@pershkrimi,@link,@ikonat)");
+
 		//updating the table
-		$result = mysqli_query($conn, "UPDATE footer SET pershkrimi='$pershkrimi', ikonat='$ikonat'  WHERE id_footer=$id_footer");
+		// $result = mysqli_query($conn, "UPDATE footer SET pershkrimi='$pershkrimi', link='$link', ikonat='$ikonat'  WHERE id_footer=$id_footer");
 
 		//redirectig to the display message. In our case, it is home.php
 		header("Location: home.php");
@@ -24,6 +46,7 @@ $result = mysqli_query($conn, "SELECT * FROM footer WHERE id_footer=$id_footer")
 
 while ($res = mysqli_fetch_array($result)) {
 	$pershkrimi = $res['pershkrimi'];
+	$link = $res['link'];
 	$ikonat = $res['ikonat'];
 }
 ?>
@@ -45,7 +68,11 @@ while ($res = mysqli_fetch_array($result)) {
 								</td>
 							</tr>
 							<tr>
-								<td style="font-weight:bold; color:black;text-align: right;">Ikonat: </td>
+								<td style="font-weight:bold; color:black;text-align: right;">Linku: </td>
+								<td><input type="text" name="link" class="form-control" value="<?php echo $link; ?>" /></td>
+							</tr>
+							<tr>
+								<td style="font-weight:bold; color:black;text-align: right;">Ikona: </td>
 								<td><input type="text" name="ikonat" class="form-control" value="<?php echo $ikonat; ?>" /></td>
 							</tr>
 						</tbody>

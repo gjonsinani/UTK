@@ -7,12 +7,40 @@ if (isset($_POST['update_user'])) {
 	$uid = $_POST['uid'];
 	$username = $_POST['username'];
 	$email = $_POST['email'];
-	$password = $_POST['password']; {
-		//updating the table
-		$result = mysqli_query($conn, "UPDATE users SET username='$username', email='$email', password=MD5('$password')  WHERE uid=$uid");
+	$password = MD5($_POST['password']);
+	// {
+	// 	//updating the table
+	// 	$result = mysqli_query($conn, "UPDATE users SET username='$username', email='$email', password=MD5('$password')  WHERE uid=$uid");
 
-		//redirectig to the display message. In our case, it is home.php
-		header("Location: users.php");
+	// 	//redirectig to the display message. In our case, it is home.php
+	// 	header("Location: users.php");
+	// }
+	if (empty($username) || empty($email) || empty($password)) {
+
+		if (empty($username)) {
+			echo "<font color='red'>Username field is empty.</font><br/>";
+		}
+
+		if (empty($email)) {
+			echo "<font color='red'>Email field is empty.</font><br/>";
+		}
+
+		if (empty($password)) {
+			echo "<font color='red'>Password field is empty.</font><br/>";
+		}
+	} else {
+		//updating the table
+		mysqli_query($conn, "SET @uid = ${uid}");
+		mysqli_query($conn, "SET @username = '${username}'");
+		mysqli_query($conn, "SET @email = '${email}'");
+		mysqli_query($conn, "SET @password = '${password}'");
+		$result = mysqli_query($conn, "CALL updateUser(@uid,@username,@email,@password)");
+		if ($result) {
+			//redirectig to the display pProgrami. In our case, it is admin.php
+			header("Location: users.php");
+		} else {
+			die("Coudn't execute update procedure!");
+		}
 	}
 }
 ?>

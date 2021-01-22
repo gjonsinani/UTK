@@ -1,0 +1,82 @@
+DELIMITER $$
+CREATE DEFINER=root@localhost PROCEDURE insertUser(
+    IN username VARCHAR(50),
+    IN email VARCHAR(100),
+    IN password VARCHAR(50)
+)
+INSERT INTO users(
+    username,
+    email,
+    password
+)
+VALUES(
+    username,
+    email,
+    password
+)$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=root@localhost PROCEDURE deleteUser(IN p_uid INT(11))
+DELETE
+FROM
+    users
+WHERE
+    uid = p_uid$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=root@localhost PROCEDURE selectUser(IN p_uid INT(11))
+SELECT
+    *
+FROM
+    users
+WHERE
+    uid = p_uid$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=root@localhost PROCEDURE selectUserOByIDINOUT(
+    IN p_uid INT(11),
+    OUT username VARCHAR(50),
+    OUT email VARCHAR(100),
+    OUT password VARCHAR(50)
+)
+SELECT
+    p_uid,
+    username,
+    email,
+    password 
+FROM
+    users
+ORDER BY
+    p_uid
+DESC$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=root@localhost PROCEDURE updateUser(
+    IN p_uid INT(11),
+    IN p_username VARCHAR(50),
+    IN p_email VARCHAR(100),
+    IN p_password VARCHAR(50)
+)
+UPDATE
+    users
+SET
+    username = p_username,
+    email = p_email,
+    password = p_password
+WHERE
+    uid = p_uid$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=root@localhost PROCEDURE selectTERMUser(IN p_term VARCHAR(200))
+SELECT
+    *
+FROM
+    users
+WHERE
+    username LIKE CONCAT('%', p_term , '%') OR email LIKE CONCAT('%', p_term , '%')$$
+DELIMITER ;
