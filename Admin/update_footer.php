@@ -40,16 +40,18 @@ while ($res = mysqli_fetch_array($result)) {
 						<tbody>
 							<tr>
 								<td style="font-weight:bold; color:black;text-align: right;">Pershkrimi: </td>
-								<td><input type="text" name="pershkrimi" class="form-control" value="<?php echo $pershkrimi; ?>" /></td>
+								<td>
+									<textarea name="pershkrimi" class="form-control" id="exampleFormControlTextarea1" rows="5" style="resize: none;"><?php echo $pershkrimi; ?></textarea>
+								</td>
 							</tr>
 							<tr>
 								<td style="font-weight:bold; color:black;text-align: right;">Ikonat: </td>
-								<td><input type="text" name="ikonat" class="form-control" value="<?php echo $ikonat; ?>"/></td>
+								<td><input type="text" name="ikonat" class="form-control" value="<?php echo $ikonat; ?>" /></td>
 							</tr>
 						</tbody>
 					</table>
-					<input type="hidden" name="id_footer" value='<?php echo $_GET['id_footer'];?>' />
-					<input class="contact-but-blue" type="submit" name="update_footer"  value="Modifiko"/>
+					<input type="hidden" name="id_footer" value='<?php echo $_GET['id_footer']; ?>' />
+					<input class="contact-but-blue" type="submit" name="update_footer" value="Modifiko" />
 					<div>
 
 	</form>

@@ -48,19 +48,23 @@ include("header.php");
 			mysqli_free_result($result);
 	?>
 
-		<div class="container"  id="<?php echo $id_rrk; ?>">
+		<div class="container" id="<?php echo $id_rrk; ?>">
 
 
-			<div class="about-grids" style="height: 30vh; width:100%; cursor: initial; ">
-			<div class="col-md-6 about-pic" style="padding: 5% 0%; text-align:center;" >
+			<div class="about-grids" style="height: 30vh; width:100%; cursor: text; ">
+				<!-- <div class="col-md-6 about-pic" style="padding: 5% 0%; text-align:center;" >
 					<span class="glyphicon5 glyphicon-<?php echo $ikona; ?>" aria-hidden="true"></span>
 
+				</div> -->
+				<div class="col-md-6 about-pic">
+					<?php echo '<img alt="" class="img-responsive" width="100%" height="100%" src="data:images/jpeg;base64,' . base64_encode($row['images']) . '"/>'; ?>
 				</div>
+
 
 				<div class="col-md-6 about-list">
 					<h3 style="padding: 5% 0; "><?php echo $titulli; ?></h3>
 					<ul>
-						<li><?php echo $pershkrimi; ?></li>
+						<li style="text-align: justify; cursor:text;"><?php echo $pershkrimi; ?></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

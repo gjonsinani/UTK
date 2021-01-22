@@ -8,9 +8,12 @@ if (isset($_POST['update_rreth_kosoves'])) {
 	$ikona = $_POST['ikona'];
 	$titulli = $_POST['titulli'];
 	$pershkrimi = $_POST['pershkrimi'];
-	{
+	$imgData =addslashes (file_get_contents($_FILES['userfile']['tmp_name']));
+	$name = $_FILES['userfile']['name'];
+	$maxsize = 10000000; //set to approx 10 MB
+ {
 		//updating the table
-		$result = mysqli_query($conn, "UPDATE rrethkosoves SET  ikona='$ikona', titulli='$titulli', pershkrimi='$pershkrimi' WHERE id_rrk=$id_rrk");
+		$result = mysqli_query($conn, "UPDATE rrethkosoves SET  ikona='$ikona', titulli='$titulli', pershkrimi='$pershkrimi', images='$imgData', name='$name' WHERE id_rrk=$id_rrk");
 
 		//redirectig to the display message. In our case, it is home.php
 		header("Location: rreth_kosoves.php");
@@ -43,7 +46,7 @@ while ($res = mysqli_fetch_array($result)) {
 						<tbody>
 							<tr>
 								<td style="font-weight:bold; color:black;text-align: right;">Ikona: </td>
-								<td><input type="text" name="ikona" class="form-control" value="<?php echo $ikona; ?>"/></td>
+								<td><input type="text" name="ikona" class="form-control" value="<?php echo $ikona; ?>" /></td>
 							</tr>
 							<tr>
 								<td style="font-weight:bold; color:black;text-align: right;">Titulli: </td>
@@ -51,13 +54,19 @@ while ($res = mysqli_fetch_array($result)) {
 							</tr>
 							<tr>
 								<td style="font-weight:bold; color:black;text-align: right;">Pershkrimi: </td>
-								<td><input type="text" name="pershkrimi" class="form-control" value="<?php echo $pershkrimi; ?>" /></td>
+								<td>
+									<textarea name="pershkrimi" class="form-control" id="exampleFormControlTextarea1" rows="5" style="resize: none;"><?php echo $pershkrimi; ?></textarea>
+									<!-- <input type="text"  class="form-control"  /></td> -->
+							</tr>
+							<tr>
+								<td><input type="hidden" name="MAX_FILE_SIZE" value="10000000" /></td>
+								<td><input name="userfile" type="file" /></td>
 							</tr>
 
 						</tbody>
 					</table>
-					<input type="hidden" name="id_rrk" value='<?php echo $_GET['id_rrk'];?>' />
-					<input class="contact-but-blue" type="submit" name="update_rreth_kosoves"  value="Modifiko"/>
+					<input type="hidden" name="id_rrk" value='<?php echo $_GET['id_rrk']; ?>' />
+					<input class="contact-but-blue" type="submit" name="update_rreth_kosoves" value="Modifiko" />
 					<div>
 
 	</form>
@@ -73,4 +82,4 @@ while ($res = mysqli_fetch_array($result)) {
 
 <?php
 include("footer.php");
-?> 
+?>

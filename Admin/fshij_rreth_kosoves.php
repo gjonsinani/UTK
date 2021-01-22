@@ -37,7 +37,9 @@ $result = mysqli_query(
                         	<tr>
 								<th class="t-th">Ikona</th>
 								<th class="t-th">Titulli</th>
-	                            <th class="t-th">Pershkrimi</th>
+								<th class="t-th">Pershkrimi</th>
+								<th class="t-th">Emri i fotos</th>
+	                            <th class="t-th">Foto</th>
 	                            <th class="t-th">Fshijë</th>
                             </tr>
                         </thead>
@@ -51,6 +53,9 @@ $result = mysqli_query(
 										echo "<td>".$row['ikona']."</td>";
 										echo "<td>".$row['titulli']."</td>";
 										echo "<td>".$row['pershkrimi']."</td>";
+										echo "<td>".$row['name']."</td>";
+										echo "<td><img src=data:image/jpeg;base64," . base64_encode($row['images']) . " width='80'  height='100'/></td>";
+
 										echo "<td><a href=\"delete_rreth_kosoves.php?id_rrk=$row[id_rrk]\" class='contact-but-red' style='text-decoration:none;' type='submit'>
 										Fshijë</a></td></tr>";		
 						}
