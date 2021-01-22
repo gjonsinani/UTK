@@ -1,20 +1,19 @@
 		<!-- footer -->
 		<?php
-		// $result = mysqli_query($conn, "SELECT * FROM footer order by id_footer ASC limit 5 ");
-		// while ($row = mysqli_fetch_array($result)) {
-		// 	extract($row);
-		// 	if ($result == null)
-		// 		mysqli_free_result($result);
-		$result = mysqli_query($conn,"CALL selectFooterOByIDINOUT()");
-
+		$result = mysqli_query($conn, "SELECT * FROM footer order by id_footer DESC limit 1 ");
+		while ($row = mysqli_fetch_array($result)) {
+			extract($row);
+			if ($result == null)
+				mysqli_free_result($result);
 		?>
+
 
 
 		<footer style="margin-top: 5%">
 			<div class="copywrite">
 
 				<p>© <?php echo $pershkrimi ?> | <a href=" <?php echo $link ?> "><i class="fa fa-<?php echo $ikonat ?>" aria-hidden="true"></i></a></p>
-
+<?php } ?>
 			</div>
 			</div>
 		</footer>
