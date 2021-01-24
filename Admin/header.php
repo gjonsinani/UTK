@@ -1,7 +1,4 @@
-<?php
-/* Faqja (home.php) e cila paraqitet pasi perdoruesi te llogohet me sukses */
-include("check.php");
-?>
+<?php include_once("check.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -58,15 +55,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <!--/navbar header-->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                             <li><a href="home.php">Ballina</a></li>
-                             <li><a href="rreth_kosoves.php">Rreth Kosovës</a></li>
-                             <li><a href="kontakt.php">Kontakti</b></a> </li>
-                             <li><a href="pikat_turistike.php">Pikat Turistike</b></a> </li>
-                             <li><a href="users.php">Përdoruesit</a></li>
-                             <li> <a href="logout.php">Çkyçu</a> </li>
+
+
+                        <ul class="nav navbar-nav" style="font-size:13px;">
+                            <li><a href="home.php">Ballina</a></li>
+                            <li><a href="rreth_kosoves.php">Rreth Kosoves</a></li>
+                            <li><a href="menaxhokomunat.php">Komunat</a></li>
+                            <li><a href="pikat_turistike.php">Pikat Turistike</a></li>
+                            <li><a href="manageevents.php">Eventet</a></li>
+                            <li><a href="users.php">Perdoruesit</a></li>
+                            <li><a href="kontakt.php">Kontakti</a> </li>
+                            <li><a href="logout.php">Ckycy</a> </li>
+
                         </ul>
-                        
+
 
                     </div>
 
@@ -78,5 +80,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
         </div>
     </div>
-    <br><h4 class="text-right" style="margin-right: 5%;"> Pershendetje, <?php echo $login_user; ?>!</h4>
+    <br>
+    <h4 class="text-right" style="margin-right: 5%;"> Pershendetje, <?php echo $login_user; ?>!</h4>
     <br>

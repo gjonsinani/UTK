@@ -11,7 +11,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		 <h3 class="t-h3">Forma për shtimin e pikës Turistike</h3>
 		 <div class="container">		 
             <div class="div-form">
-                <form class=" footer-bottom ">
+                <form class=" footer-bottom " enctype="multipart/form-data"  action="shtoPike.php" method="post" name="form1">
                 	<div class="table-responsive">
                     <table class="table">
                             <tbody>
@@ -21,39 +21,55 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </tr>
                             <tr>
                                 <td class="t-td">Foto:</td>
-                                <td><input class=""  type="file" accept="image/*" name="foto"/></td>
+                                <td><input class=""  type="file"  name="foto1"/></td>
                             </tr>
                             <tr>
-                                <td class="t-td">Video:</td>
-                                <td><input class=""  type="file" accept="video/*" name="video"/></td>
+                                <td></td>
+                                <td><input class=""  type="file" name="foto2"/></td>
                             </tr>
                             <tr>
-                                <td class="t-td">Linku: </td>
-                                <td><input class="form-control" type="text" name="linku" /></td>
+                                <td></td>
+                                <td><input class=""  type="file" name="foto3"/></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input class=""  type="file" name="foto4"/></td>
+                            </tr>
+                            <tr>
+                                <td class="t-td" >Atraksioni:</td>
+                                <td><select class="form-control" name="ID_Atraksioni">
+                                        <option selected="selected">Zgjedh Atraksionin</option>
+                                        <?php
+                                        $res=mysqli_query($conn,"SELECT * FROM atraksionet");
+                                        while($row=$res->fetch_array())
+                                        {
+                                            ?>
+                                            <option value="<?php echo $row['ID_Atraksioni']; ?>"><?php echo $row['Atraksioni']; ?></option>
+                                            <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </td>                                
+                            </tr>
+                            <tr>
+                                <td class="t-td" >Komuna:</td>
+                             <td><select class="form-control" name="ID_Komuna">
+                                <option selected="selected">Zgjedh Komunën</option>
+                                <?php
+                                        $res=mysqli_query($conn,"SELECT * FROM komunat");
+                                        while($row=$res->fetch_array())
+                                        {
+                                            ?>
+                                            <option value="<?php echo $row['ID_Komuna']; ?>"><?php echo $row['EmriKomunes']; ?></option>
+                                            <?php
+                                        }
+                                        ?>
+                                 </select>
+                            </td>                                
                             </tr>
                             <tr>
                                 <td class="t-td">Lokacioni: </td>
                                 <td><input class="form-control" type="text" name="lokacioni" /></td>
-                            </tr>
-                            <tr>
-                                <td class="t-td" >Komuna:</td>
-                                <td><select class="form-control" name="komuna">
-							  <option>Prishtinë</option>
-							  <option>Ferizaj</option>
-							  <option>Prizren</option>
-							</select></td>                                
-                            </tr>
-                            <tr>
-                                <td class="t-td" >Linqe të shpejta:</td>
-                                <td><input class="form-control" type="text" name="linkishpejt"/></td>
-                            </tr>
-                            <tr>
-                                <td class="t-td" >Atraksioni:</td>
-                                <td><select class="form-control" name="atraksioni">
-							  <option>Kulturor</option>
-							  <option>Natyror</option>
-							  <option>Artificial</option>
-							</select></td>                                
                             </tr>
                             <tr>
                                 <td class="t-td">Pershkrimi:</td>
@@ -63,9 +79,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </table>
                     </div>                  
                     <div >
-                        <form>
+                        
                             <input class="contact-but-blue" type="Submit" name="Shto" value="Shto" />
-                        </form>
+                        
                     </div>
                 
                 </form>
