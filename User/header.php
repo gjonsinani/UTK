@@ -59,12 +59,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!--/navbar header-->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                             <li><a href="home.php">Ballina</a></li>
-                             <li><a href="rreth_kosoves.php">Rreth Kosoves</a></li>
-                             <li><a href="kontakt.php">Kontakti</b></a> </li>
-                             <li><a href="pikat_turistike.php">Pikat Turistike</b></a> </li>
+                            <?php
+                            // $result - mysqli_fetch_array($conn, "CALL selectMenuOByIDINOUT()");
+                            $result = mysqli_query($conn, "SELECT * FROM menyte order by id_menu ASC limit 4 ");
+                            while ($row = mysqli_fetch_array($result)) {
+                                extract($row);
+                                if ($result == null)
+                                    mysqli_free_result($result);
+                            ?>
+
+                                <li><a href="<?php echo $link; ?>"><?php echo $emri; ?></a></li>
+                            <?php } ?>
                         </ul>
-                        
 
                     </div>
 
