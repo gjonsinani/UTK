@@ -1,3 +1,4 @@
+<?php include('check.php'); ?>
 <!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -7,53 +8,95 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <?php include("header.php"); ?>
 <!---->
 <div class="contact">
-	 <div class="container">
+	 <div class="container" style="padding: 0; margin: 0 2.5%; width: 95%; ">
 	 	<div class="choose d-choose">
 			
-				<h3 class="t-h3">Forma për Modifikimin e Sygjerimeve të Përdoruesit</h3>
+				<h3 class="t-h3">Forma për fshirjen e pikave turistike</h3>
            
             <div class="d-form">
                 <form class=" footer-bottom ">
-                	<div class="input-group table-responsive" style="margin:5%;">
-						<span class="input-group-addon" id="basic-addon1">Kerko Piken Turistike : </span>
-						<input type="text" class="form-control" placeholder="Emri ose Komuna" aria-describedby="basic-addon1">
-					</div>
+                	<div style="width: 70%; text-align: center; margin:0 15% 2% 15%;">
+					    <div class="input-group">
+					      <input type="text" name="term" class="form-control" placeholder="Emri ose Email-i">
+					      <span class="input-group-btn">
+					        <button class="btn btn-default" type="submit">Kërko</button>
+					      </span>
+					    </div>
+  					</div>
 					<div class="table-responsive" >
                     <table class="table table-responsive">
                         <thead>
                         	<tr>
-	                            <th class="t-th">Emri</th>
-	                            <th class="t-th">Foto</th>
-	                            <th class="t-th">Video</th>
-	                            <th class="t-th">Linku</th>
-	                            <th class="t-th">Lokacioni</th>
+	                            <th class="t-th">Emri i pikës turisktike</th>
 	                            <th class="t-th">Komuna</th>
-	                            <th class="t-th">Linqe të shpejta</th>
 	                            <th class="t-th">Atraksioni</th>
 	                            <th class="t-th">Pershkrimi</th>
+	                            <th class="t-th">Foto e parë</th>
+	                            <th class="t-th">Foto e dytë</th>
+	                            <th class="t-th">Foto e tretë</th>
+	                            <th class="t-th">Foto e katërt</th>
+	                            <th class="t-th">Lokacioni</th>
+	                            <th class="t-th">Aprovimi</th>
 	                            <th class="t-th">Fshi</th>
                             </tr>
                         </thead>
                         <tbody style="line-height: 0; border: ">
-                        	<tr>
-                        		<td>Maja e Lybetenit</td>
-                        		<td>img.png</td> 
-                        		<td>vid.mp4</td>
-                        		<td>https://goo.gl/maps/H1tJSsgsLQB6uSE37</td>
-                        		<td>Shtërpc</td>  
-                        		<td>Ferizaj</td>  
-                        		<td>www.fb.com/komunaeferizajit</td>  
-                        		<td>Natyror</td>  
-                        		<td>TEXT</td>  
-                        		<td><input class="contact-but-red" type="submit" value="Fshi" /></td>                          	
-                            </tr>
+                        	<?php
+	if (!empty($_REQUEST['term'])) {
+
+	$term = mysqli_real_escape_string($conn,$_REQUEST['term']);
+	$sql = mysqli_query($conn,"SELECT 
+		s.ID_pikaT,
+  		s.Emri,
+ 		k.EmriKomunes,
+  		a.Atraksioni,
+  		s.Pershkrimi,
+  		s.Foto1,
+  		s.Foto2,
+  		s.Foto3,
+  		s.Foto4,
+  		s.Lokacioni,
+  		s.Aprovimi
+  		FROM pikatturistike s
+  		INNER JOIN komunat k ON s.ID_Komuna=k.ID_Komuna
+  		INNER JOIN atraksionet a ON s.ID_Atraksioni=a.ID_Atraksioni
+		WHERE Emri LIKE '%".$term."%'"); 
+
+	while($row = mysqli_fetch_array($sql)) { 		
+			echo "<tr>";
+			echo "<td>".$row['Emri']."</td>";
+			echo "<td>".$row['EmriKomunes']."</td>";
+			echo "<td>".$row['Atraksioni']."</td>";
+			$txt=$row['Pershkrimi'];
+			$persh=substr($txt, 0,15);
+			echo "<td>".$persh." ..."."</td>";		
+			echo '<td><img src="upload/' . $row['Foto1'] . ' "width="50"  height="50""/></td>';
+			echo '<td><img src="upload/' . $row['Foto2'] . '"width="50"  height="50""/></td>';
+			echo '<td><img src="upload/' . $row['Foto3'] . '"width="50"  height="50""/></td>';
+			echo '<td><img src="upload/' . $row['Foto4'] . '"width="50"  height="50""/></td>';
+			$txt1=$row['Lokacioni'];
+			$lock=substr($txt1, 0,15);
+			echo "<td>".$lock." ..."."</td>";
+
+			if ($row['Aprovimi'] == 'PO') {
+				echo "<td>".$row['Aprovimi']."</td>";
+			}else{
+				echo "<td><a href=\"update_aprovimi.php?ID_pikaT=$row[ID_pikaT]\" class='contact-but-blue' style='text-decoration:none;' name='aprovo' type='submit'>Aprovo</a></td>";
+			}
+			echo "<td><a href=\"delete_pikeT.php?ID_pikaT=$row[ID_pikaT]\" onClick=\"return confirm('A jeni te sigurt se deshironi te fshini pikën turisktike?')\" class='contact-but-red' style='text-decoration:none;'>
+										Fshi</a></td></tr>";			
+		}
+
+	}
+
+	?>
                             
 	                    </tbody>
 	                </table>
 	                </div>                   
                     
-                
-                </form>
+                  </form>
+              
                 </div>
                 <div class="clearfix"></div>
 			
