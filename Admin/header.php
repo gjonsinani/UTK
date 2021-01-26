@@ -81,5 +81,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
     <br>
-    <h4 class="text-right" style="margin-right: 5%;"> Pershendetje, <?php echo $login_user; ?>!</h4>
+    <h4 class="text-right" style="margin-right: 5%;"><?php echo $login_user; ?></h4>
     <br>

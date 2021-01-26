@@ -23,7 +23,8 @@ include("header.php");
 
 							<tr>
 								<td style="font-weight:bold; color:black;text-align: right;">Pershkrimi: </td>
-								<td><input class="form-control" type="text" name="pershkrimi" /></td>
+								<td> <textarea name="pershkrimi" class="form-control" id="exampleFormControlTextarea1" rows="5" style="resize: none;"></textarea>
+								</td>
 
 							</tr>
 							<tr>

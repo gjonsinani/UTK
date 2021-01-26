@@ -39,7 +39,7 @@ if (isset($_POST['update_rreth_kosoves'])) {
 		$result = mysqli_query($conn, "CALL updateRrKs(@id_rrk,@ikona,@titulli,@pershkrimi,@imgData,@name)");
 		if ($result) {
 			//redirectig to the display pProgrami. In our case, it is admin.php
-			header("Location: rrethkosoves.php");
+			header("Location: rreth_kosoves.php");
 		} else {
 			die("Coudn't execute update procedure!");
 		}

@@ -6,7 +6,7 @@
 				<?php
 
 				// $result - mysqli_fetch_array($conn, "CALL selectMenuOByIDINOUT()");
-				$result = mysqli_query($conn, "SELECT * FROM footer order by id_footer DESC limit 2 ");
+				$result = mysqli_query($conn_f, "SELECT * FROM footer order by id_footer DESC limit 2 ");
 				while ($row = mysqli_fetch_array($result)) {
 					extract($row);
 					if ($result == null)

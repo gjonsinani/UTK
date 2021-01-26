@@ -37,7 +37,7 @@ include("header.php");
 
 <div class="container">
 	<div class="choose border-dark-1px">
-		<h3 class="bg-color-dark">Forma për Menaxhimin e menyse Reth Kosoves</h3>
+		<h3 class="bg-color-dark">Forma për Menaxhimin e menysë Reth Kosovës</h3>
 		<div class="container">
 			<div class="choos-girds">
 				<div class="col-md-4 choos-grid">

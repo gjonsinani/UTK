@@ -56,12 +56,12 @@ include("header.php");
 					<span class="glyphicon5 glyphicon-<?php echo $ikona; ?>" aria-hidden="true"></span>
 
 				</div> -->
-				<div class="col-md-6 about-pic">
+				<div class="col-md-6 about-pic" data-aos="fade-right">
 					<?php echo '<img alt="" class="img-responsive" width="100%" height="100%" src="data:images/jpeg;base64,' . base64_encode($row['images']) . '"/>'; ?>
 				</div>
 
 
-				<div class="col-md-6 about-list">
+				<div class="col-md-6 about-list" data-aos="fade-left">
 					<h3 style="padding: 5% 0; "><?php echo $titulli; ?></h3>
 					<ul>
 						<li style="text-align: justify; cursor:text;"><?php echo $pershkrimi; ?></li>

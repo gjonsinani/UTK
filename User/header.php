@@ -16,6 +16,7 @@ include("check.php");
     <link href="css/style.css" rel='stylesheet' type='text/css' />
     <link href="css/style2.css" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom Theme files -->
     <!--//theme style-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
